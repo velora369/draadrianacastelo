@@ -9,9 +9,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div className="animate-fade-in">
-            <h3 className="font-display text-xl font-semibold mb-2">
-              Dra. Adriana Castelo C. de Moura
-            </h3>
+            <img 
+              src="https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/logo.webp" 
+              alt="Dra. Adriana Castelo C. de Moura - Oncologista"
+              className="h-12 w-auto mb-2 brightness-0 invert"
+            />
             <p className="text-background/80">Oncologista</p>
           </div>
 

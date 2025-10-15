@@ -36,10 +36,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <button 
             onClick={() => scrollToSection('inicio')}
-            className="font-display text-xl md:text-2xl font-semibold text-foreground hover-elevate active-elevate-2 px-2 py-1 rounded-md"
+            className="hover-elevate active-elevate-2 px-2 py-1 rounded-md transition-transform duration-300 hover:scale-105"
             data-testid="logo-button"
           >
-            Dra. Adriana Castelo C. de Moura
+            <img 
+              src="https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/logo.webp" 
+              alt="Dra. Adriana Castelo C. de Moura - Oncologista"
+              className="h-12 md:h-14 w-auto"
+            />
           </button>
 
           <nav className="hidden lg:flex items-center gap-8">
