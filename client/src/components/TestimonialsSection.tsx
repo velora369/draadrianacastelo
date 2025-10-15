@@ -1,7 +1,32 @@
+import { useEffect, useRef, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Quote } from 'lucide-react';
 
 export default function TestimonialsSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   //todo: remove mock functionality
   const testimonials = [
     {
@@ -22,9 +47,9 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section id="depoimentos" className="py-16 md:py-24 bg-muted/30">
+    <section ref={sectionRef} id="depoimentos" className="py-16 md:py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground text-center mb-12">
+        <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground text-center mb-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           O que dizem os pacientes
         </h2>
 
@@ -32,7 +57,8 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="p-6 relative hover-elevate rounded-lg"
+              className={`p-6 relative hover-elevate rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-md ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+              style={{ animationDelay: `${(index + 1) * 150}ms` }}
               data-testid={`testimonial-${index}`}
             >
               <Quote className="w-10 h-10 text-primary/20 mb-4" />
