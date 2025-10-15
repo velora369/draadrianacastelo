@@ -1,0 +1,128 @@
+🧠 PROMPT PARA O AGENTE IA (Replit)
+
+Tarefa:
+Crie uma landing page profissional e clássica para a médica oncologista Dra. Adriana Castelo C. de Moura, com design limpo, visual humanizado e tons suaves (verde musgo, azul marinho, rosa seco ou vinho).
+O site deve ser estruturado com seções bem definidas, boa hierarquia visual, tipografia legível e destaque para o contato via WhatsApp.
+
+⚙️ Estrutura da Página
+
+1. Cabeçalho (Header)
+
+Logo textual: “Dra. Adriana Castelo C. de Moura”
+
+Menu âncora com links: Início, Sobre, Especialidades, Depoimentos, Contato
+
+Botão de destaque: Agendar Consulta (WhatsApp)
+
+2. Hero Section (Apresentação)
+
+Fundo em tom claro e imagem ilustrativa (médica confiante ou paciente acolhido, com estética hospitalar refinada).
+
+Título principal:
+Cuidado, Ciência e Humanidade no Tratamento Oncológico
+
+Subtítulo:
+“Atendimento especializado em oncologia torácica, ginecológica e gastrointestinal, com um olhar humano e científico.”
+
+Botão de ação: Fale com a Dra. Adriana
+
+3. Seção “Quem Sou”
+
+Título: Sobre a Dra. Adriana Castelo C. de Moura
+
+Texto:
+“Médica oncologista do Hospital Sírio-Libanês e do Hospital Universitário de Brasília. Doutoranda pela UnB, atua em oncologia de precisão e pesquisa clínica. Integra prática clínica, pesquisa e ensino — unindo ciência e sensibilidade para oferecer o melhor cuidado aos pacientes.”
+
+Destaque visual com selos ou ícones:
+🩺 Oncologia Torácica | 🌸 Oncologia Ginecológica | 🍃 Oncologia Gastrointestinal
+
+4. Especialidades (Serviços)
+
+Título: Áreas de Atuação
+
+Texto introdutório:
+“A Dra. Adriana oferece atendimento oncológico completo, conduzindo cada paciente com empatia, segurança e acesso às melhores opções de tratamento.”
+
+Cards com ícones:
+
+Oncologia Ginecológica – Diagnóstico e tratamento personalizado de tumores ginecológicos.
+
+Oncologia Gastrointestinal – Abordagem integrada para cânceres de estômago, intestino e fígado.
+
+Oncologia Torácica – Tratamento especializado para câncer de pulmão e demais tumores torácicos.
+
+Pesquisa Clínica – Coordenação e condução de estudos clínicos voltados à inovação em oncologia.
+
+5. Seção Humanizada (Fé e Propósito)
+
+Título: Cuidar do corpo, da mente e do espírito
+
+Texto:
+“A fé é um pilar importante na jornada de muitos pacientes. No consultório da Dra. Adriana, o cuidado vai além da medicina — é também um espaço de acolhimento espiritual, onde cada pessoa é ouvida e tratada com amor e respeito.”
+
+Sugestão visual: fundo com textura leve, símbolo sutil de cruz ou luz.
+
+6. Depoimentos
+
+Título: O que dizem os pacientes
+
+Inserir 3 cards simulando depoimentos reais (com aspas e foto ilustrativa):
+
+“A Dra. Adriana me acolheu em um momento muito difícil. Seu carinho e clareza me deram força para seguir o tratamento.” — Paciente verificado no Doctoralia
+
+“Excelente médica, explica tudo com paciência e empatia. Senti confiança desde a primeira consulta.”
+
+“Profissional incrível, une ciência e fé de um jeito inspirador.”
+
+7. Avaliações Google
+
+Título: Avaliações no Google
+
+Instrução para o agente: Simular cards idênticos aos do Google Reviews, com estrelas ⭐⭐⭐⭐⭐, ícone do Google colorido e 3 avaliações positivas geradas automaticamente (nome fictício, data e texto curto).
+Exemplo:
+
+⭐⭐⭐⭐⭐ “A melhor experiência médica que já tive. Profissional, humana e muito atenciosa.” — Maria F., 2024
+
+8. Contato + Pitch de Agendamento
+
+Título: Agende sua consulta
+
+Texto:
+“Entre em contato e dê o primeiro passo rumo a um cuidado oncológico com acolhimento e excelência.”
+
+Botão WhatsApp (link direto):
+Fale com a Dra. Adriana
+
+Campos de formulário: Nome, E-mail, Telefone, Mensagem.
+
+9. Rodapé (Footer)
+
+Nome completo e especialidade:
+Dra. Adriana Castelo C. de Moura — Oncologista
+
+Horário de atendimento: segunda a sexta, das 8h às 19h
+
+Ícones clicáveis para WhatsApp e Instagram
+
+Texto final:
+“© 2025 Dra. Adriana Castelo C. de Moura | Todos os direitos reservados.”
+
+🎨 Estilo e Design
+
+Tipografia: Playfair Display (títulos), Lato ou Montserrat (texto).
+
+Cores:
+Paleta definida (com tokens)
+Primary / Verde-musgo: #2E5E4E (hover: #264D41)
+Secondary / Azul-marinho: #0F2C4D (hover: #0B213A)
+Accent / Rosa seco: #C07A7A (hover: #A76565)
+Background-base (claro): #FAFAF7
+Surface (cards): #FFFFFF
+Neutral-100 (bordas suaves): #EAEDEA
+Neutral-700 (texto secundário): #3E4744
+Feedback-ok (sutil, derivado do primary): #3A7E6A
+Contraste OK para acessibilidade: texto #0F2C4D sobre #FAFAF7 e botões #2E5E4E com texto branco.
+
+Estilo: clássico, elegante, médico, feminino e acolhedor.
+
+Layout: espaçado, com bastante respiro visual e seções bem separadas.
