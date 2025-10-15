@@ -34,10 +34,10 @@ export default function AboutSection() {
   ];
 
   const credentials = [
-    { icon: Building2, text: 'Hospital Sírio-Libanês' },
-    { icon: Building2, text: 'Hospital Universitário de Brasília' },
-    { icon: GraduationCap, text: 'Doutoranda pela UnB' },
-    { icon: Microscope, text: 'Oncologia de Precisão' },
+    { icon: Building2, text: 'Hospital Sírio-Libanês', lineBreak: false },
+    { icon: Building2, text: 'Hospital Universitário', text2: 'de Brasília', lineBreak: true },
+    { icon: GraduationCap, text: 'Doutoranda pela UnB', lineBreak: false },
+    { icon: Microscope, text: 'Oncologia de Precisão', lineBreak: false },
   ];
 
   return (
@@ -93,7 +93,15 @@ export default function AboutSection() {
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                     <cred.icon className="w-7 h-7 text-primary" />
                   </div>
-                  <p className="text-sm font-medium text-foreground leading-tight">{cred.text}</p>
+                  <p className="text-sm font-medium text-foreground leading-tight min-h-[2.5rem] flex items-center">
+                    {cred.lineBreak ? (
+                      <>
+                        {cred.text}<br />{cred.text2}
+                      </>
+                    ) : (
+                      cred.text
+                    )}
+                  </p>
                 </Card>
               </div>
             ))}
