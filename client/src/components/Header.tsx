@@ -42,7 +42,7 @@ export default function Header() {
             <img 
               src="https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/logo.webp" 
               alt="Dra. Adriana Castelo C. de Moura - Oncologista"
-              className="h-12 md:h-14 w-auto"
+              className="h-16 md:h-20 lg:h-24 w-auto max-w-[280px] md:max-w-[320px] lg:max-w-[380px]"
             />
           </button>
 

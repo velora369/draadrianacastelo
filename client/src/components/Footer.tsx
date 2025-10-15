@@ -12,7 +12,7 @@ export default function Footer() {
             <img 
               src="https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/logo.webp" 
               alt="Dra. Adriana Castelo C. de Moura - Oncologista"
-              className="h-12 w-auto mb-2 brightness-0 invert"
+              className="h-16 md:h-20 w-auto max-w-[280px] md:max-w-[320px] mb-2 brightness-0 invert"
             />
             <p className="text-background/80">Oncologista</p>
           </div>
