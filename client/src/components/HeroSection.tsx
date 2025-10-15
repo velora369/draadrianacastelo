@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { FaWhatsapp } from 'react-icons/fa';
-import { Sparkles, Award, Users } from 'lucide-react';
+import { Award, Users } from 'lucide-react';
 
 export default function HeroSection() {
   const whatsappNumber = '5561999999999';
@@ -19,11 +19,6 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 text-center lg:text-left space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20 animate-fade-in">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Oncologia de Excelência</span>
-            </div>
-
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight animate-fade-in-up">
               Cuidado,{' '}
               <span className="bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent">
