@@ -93,7 +93,7 @@ export default function HeroSection() {
                   
                   <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background/95 via-background/70 to-transparent backdrop-blur-md border-t border-primary/20">
                     <p className="text-lg font-semibold text-foreground mb-1">Dra. Adriana Castelo</p>
-                    <p className="text-sm text-muted-foreground">Oncologista | CRM XXXXX</p>
+                    <p className="text-sm text-muted-foreground">Oncologista | CRM 15661 DF</p>
                   </div>
                 </div>
               </div>
