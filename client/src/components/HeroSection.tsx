@@ -19,15 +19,6 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 text-center lg:text-left space-y-8">
-            <div className="flex justify-center lg:justify-start animate-fade-in-up mb-4">
-              <img 
-                src="https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/logo.webp"
-                alt="Logo Dra. Adriana Castelo"
-                className="h-48 md:h-56 lg:h-64 w-auto object-contain"
-                data-testid="img-logo"
-              />
-            </div>
-            
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight animate-fade-in-up">
               Cuidado,{' '}
               <span className="bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent">
