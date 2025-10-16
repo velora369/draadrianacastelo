@@ -23,7 +23,7 @@ export default function HeroSection() {
               <img 
                 src="https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/logo.webp"
                 alt="Logo Dra. Adriana Castelo"
-                className="h-16 md:h-20 lg:h-24 w-auto object-contain"
+                className="h-28 md:h-36 lg:h-40 w-auto object-contain"
                 data-testid="img-logo"
               />
             </div>
