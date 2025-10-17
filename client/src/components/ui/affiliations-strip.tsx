@@ -3,7 +3,7 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import AutoScroll from 'embla-carousel-auto-scroll';
 
-const baseAffiliations = [
+const affiliations = [
   {
     src: 'https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/redimen22.webp',
     alt: 'Hospital Sírio-Libanês',
@@ -20,16 +20,6 @@ const baseAffiliations = [
     label: 'Universidade de Brasília'
   }
 ];
-
-// Create alternating BIG/SMALL pattern: sirio(BIG), sirio(SMALL), hub(BIG), hub(SMALL), unb(BIG), unb(SMALL)
-const createAlternatingPattern = () => {
-  const pattern: Array<typeof baseAffiliations[0] & { size: 'big' | 'small' }> = [];
-  baseAffiliations.forEach(affiliation => {
-    pattern.push({ ...affiliation, size: 'big' as const });
-    pattern.push({ ...affiliation, size: 'small' as const });
-  });
-  return pattern;
-};
 
 export default function AffiliationsStrip() {
   const [emblaRef] = useEmblaCarousel(
@@ -51,8 +41,6 @@ export default function AffiliationsStrip() {
     ]
   );
 
-  const alternatingLogos = createAlternatingPattern();
-
   return (
     <section 
       className="relative py-12 overflow-hidden"
@@ -70,7 +58,7 @@ export default function AffiliationsStrip() {
           Reconhecida por instituições de excelência
         </h2>
 
-        {/* Desktop: Continuous marquee carousel with BIG/SMALL pattern */}
+        {/* Desktop: Continuous marquee carousel */}
         <div className="hidden md:block">
           <div className="relative">
             <div 
@@ -80,9 +68,9 @@ export default function AffiliationsStrip() {
               aria-roledescription="carousel"
               aria-label="Instituições afiliadas"
             >
-              <div className="flex gap-x-16">
-                {/* Duplicate the complete sequence twice for seamless continuous loop */}
-                {[...alternatingLogos, ...alternatingLogos].map((affiliation, index) => (
+              <div className="flex gap-x-24">
+                {/* Duplicate items multiple times for seamless continuous loop */}
+                {[...affiliations, ...affiliations, ...affiliations, ...affiliations].map((affiliation, index) => (
                   <div 
                     key={index} 
                     className="flex-[0_0_auto] flex items-center justify-center"
@@ -91,10 +79,8 @@ export default function AffiliationsStrip() {
                       src={affiliation.src}
                       alt={affiliation.alt}
                       aria-label={affiliation.label}
-                      className={`w-auto object-contain transition-all duration-300 ${
-                        affiliation.size === 'big' ? 'h-20' : 'h-14'
-                      }`}
-                      data-testid={`logo-${affiliation.label.toLowerCase().replace(/\s+/g, '-')}-${affiliation.size}-${index}`}
+                      className="h-12 w-auto object-contain transition-all duration-300"
+                      data-testid={`logo-${affiliation.label.toLowerCase().replace(/\s+/g, '-')}-${index}`}
                     />
                   </div>
                 ))}
@@ -103,15 +89,15 @@ export default function AffiliationsStrip() {
           </div>
         </div>
 
-        {/* Mobile: Static grid with BIG/SMALL pattern */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:hidden items-center justify-items-center">
-          {baseAffiliations.map((affiliation, index) => (
+        {/* Mobile: Static grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-12 md:hidden items-center justify-items-center">
+          {affiliations.map((affiliation, index) => (
             <div key={index} className="flex items-center justify-center">
               <img
                 src={affiliation.src}
                 alt={affiliation.alt}
                 aria-label={affiliation.label}
-                className="h-16 w-auto object-contain transition-all duration-300"
+                className="h-10 w-auto object-contain transition-all duration-300"
                 data-testid={`logo-${affiliation.label.toLowerCase().replace(/\s+/g, '-')}-mobile`}
               />
             </div>
