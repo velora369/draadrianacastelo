@@ -31,7 +31,7 @@ export default function AffiliationsStrip() {
     },
     [
       AutoScroll({ 
-        speed: 0.8,
+        speed: 1,
         startDelay: 0,
         stopOnInteraction: false,
         stopOnMouseEnter: true,
@@ -68,7 +68,7 @@ export default function AffiliationsStrip() {
               aria-roledescription="carousel"
               aria-label="Instituições afiliadas"
             >
-              <div className="flex gap-20">
+              <div className="flex gap-12">
                 {/* Duplicate items multiple times for seamless continuous loop */}
                 {[...affiliations, ...affiliations, ...affiliations, ...affiliations].map((affiliation, index) => (
                   <div 
@@ -79,7 +79,7 @@ export default function AffiliationsStrip() {
                       src={affiliation.src}
                       alt={affiliation.alt}
                       aria-label={affiliation.label}
-                      className="h-8 w-auto opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                      className="h-12 w-auto transition-all duration-300"
                       data-testid={`logo-${affiliation.label.toLowerCase().replace(/\s+/g, '-')}-${index}`}
                     />
                   </div>
@@ -97,7 +97,7 @@ export default function AffiliationsStrip() {
                 src={affiliation.src}
                 alt={affiliation.alt}
                 aria-label={affiliation.label}
-                className="h-8 w-auto opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                className="h-12 w-auto transition-all duration-300"
                 data-testid={`logo-${affiliation.label.toLowerCase().replace(/\s+/g, '-')}-mobile`}
               />
             </div>
