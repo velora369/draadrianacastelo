@@ -15,9 +15,9 @@ const affiliations = [
     label: 'Hospital Universitário de Brasília'
   },
   {
-    src: 'https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/logo-ebserh.webp',
-    alt: 'EBSERH - Empresa Brasileira de Serviços Hospitalares',
-    label: 'EBSERH'
+    src: 'https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/unb-logo.webp',
+    alt: 'Universidade de Brasília (UnB)',
+    label: 'Universidade de Brasília'
   }
 ];
 
