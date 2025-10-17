@@ -7,6 +7,16 @@ This is a professional landing page for Dr. Adriana Castelo C. de Moura, a medic
 ## Recent Changes
 
 ### October 17, 2025
+- **Implemented interactive modals for specialty cards**: Added Dialog-based modals with full accessibility support
+  - Each specialty card (Torácica, Ginecológica, Gastrointestinal, Pesquisa Clínica) now opens an educational modal with detailed content
+  - Modals include 2-3 paragraphs of educational content about each specialty
+  - Oncologia Ginecológica modal features a dedicated subsection for tumor types with descriptions
+  - Pesquisa Clínica modal includes link to hospital studies and two action buttons
+  - WhatsApp integration in all modals (except Pesquisa Clínica which has two buttons)
+  - Full keyboard accessibility: cards are focusable buttons, focus moves to modal title on open, returns to card on close
+  - Proper focus management with visible focus rings and ESC/outside-click dismissal
+  - Responsive design works seamlessly on mobile and desktop
+
 - **Eliminated redundancy in specialties sections**: Consolidated "Áreas de Especialização" and "Áreas de Atuação" into a single "Especialidades" section
   - Removed duplicate specialty cards from AboutSection (previously showed 3 smaller cards)
   - Renamed "Áreas de Atuação" to "Especialidades" in SpecialtiesSection
