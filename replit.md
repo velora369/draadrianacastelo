@@ -4,6 +4,16 @@
 
 This is a professional landing page for Dr. Adriana Castelo C. de Moura, a medical oncologist specializing in thoracic, gynecological, and gastrointestinal oncology. The website is designed with a classic, humanized healthcare aesthetic that emphasizes trust, credibility, and compassionate care. It features a modern, responsive single-page application built with React that showcases the doctor's expertise, specialties, and patient testimonials while providing easy contact through WhatsApp integration.
 
+## Recent Changes
+
+### October 17, 2025
+- **Eliminated redundancy in specialties sections**: Consolidated "Áreas de Especialização" and "Áreas de Atuação" into a single "Especialidades" section
+  - Removed duplicate specialty cards from AboutSection (previously showed 3 smaller cards)
+  - Renamed "Áreas de Atuação" to "Especialidades" in SpecialtiesSection
+  - Removed "Oncologia de Precisão" card from SpecialtiesSection per user request
+  - Final result: Single comprehensive "Especialidades" section with 4 specialty cards (Torácica, Ginecológica, Gastrointestinal, Pesquisa Clínica)
+  - AboutSection now focuses solely on biographical information
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
