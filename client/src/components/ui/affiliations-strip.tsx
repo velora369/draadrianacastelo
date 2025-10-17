@@ -5,12 +5,12 @@ import AutoScroll from 'embla-carousel-auto-scroll';
 
 const affiliations = [
   {
-    src: 'https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/chatgpt-image-17-de-out.-de-2025-01_41_23.webp',
+    src: 'https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/redimen22.webp',
     alt: 'Hospital Sírio-Libanês',
     label: 'Hospital Sírio-Libanês'
   },
   {
-    src: 'https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/chatgpt-image-17-de-out.-de-2025-01_48_08.webp',
+    src: 'https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/redimen1086.webp',
     alt: 'Hospital Universitário de Brasília (HUB)',
     label: 'Hospital Universitário de Brasília'
   },
