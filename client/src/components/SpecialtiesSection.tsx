@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { Zap } from 'lucide-react';
+import { Zap, ExternalLink } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 
 const LungsIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={className} fill="currentColor">
@@ -38,7 +41,21 @@ const ResearchIcon = ({ className }: { className?: string }) => (
 
 export default function SpecialtiesSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [openModal, setOpenModal] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const modalTitleRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+
+  const whatsappNumber = '5561999999999';
+  const whatsappMessage = 'Olá, gostaria de agendar uma consulta com a Dra. Adriana';
+
+  useEffect(() => {
+    if (openModal !== null && modalTitleRefs.current[openModal]) {
+      const timer = setTimeout(() => {
+        modalTitleRefs.current[openModal]?.focus();
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [openModal]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -68,6 +85,13 @@ export default function SpecialtiesSection() {
       description: 'Tratamento especializado para câncer de pulmão e demais tumores torácicos.',
       gradient: 'from-blue-500/20 via-cyan-500/20 to-sky-500/20',
       iconBg: 'from-blue-500/10 to-cyan-500/10',
+      modalContent: {
+        paragraphs: [
+          'A Oncologia Torácica é uma área altamente especializada dedicada ao diagnóstico e tratamento de tumores que afetam os pulmões, pleura, mediastino e outras estruturas da cavidade torácica. Com os avanços da medicina personalizada e terapias-alvo, hoje é possível oferecer tratamentos cada vez mais eficazes e menos invasivos.',
+          'Nosso foco está em proporcionar um cuidado multidisciplinar, integrando oncologia clínica, cirurgia torácica, radioterapia e medicina de suporte. Cada paciente recebe um plano terapêutico individualizado, baseado nas características específicas do tumor e no perfil molecular da doença.',
+          'Além do tratamento, oferecemos suporte contínuo para manejo de sintomas, reabilitação pulmonar e acompanhamento oncológico de longo prazo, sempre priorizando a qualidade de vida e o bem-estar do paciente.'
+        ]
+      }
     },
     {
       icon: GynecologicalIcon,
@@ -75,6 +99,18 @@ export default function SpecialtiesSection() {
       description: 'Diagnóstico e tratamento personalizado de tumores ginecológicos.',
       gradient: 'from-rose-500/20 via-pink-500/20 to-purple-500/20',
       iconBg: 'from-rose-500/10 to-pink-500/10',
+      modalContent: {
+        paragraphs: [
+          'A Oncologia Ginecológica é uma subespecialidade que cuida de cânceres que afetam o sistema reprodutor feminino, incluindo ovário, útero, colo do útero, vagina e vulva. Nosso trabalho é guiado por evidências científicas atualizadas e por uma abordagem humanizada, respeitando as particularidades de cada mulher.',
+          'Utilizamos protocolos baseados em medicina de precisão, incluindo análise genética e molecular dos tumores, para definir as melhores estratégias terapêuticas. O tratamento pode envolver quimioterapia, imunoterapia, terapias-alvo e, quando necessário, coordenação com cirurgiões especializados.',
+          'Além do cuidado oncológico, oferecemos apoio psicológico, orientação nutricional e acompanhamento multidisciplinar para garantir conforto, dignidade e qualidade de vida durante todo o processo de tratamento.'
+        ],
+        tumorTypes: [
+          { name: 'Câncer de Ovário', description: 'Tumor que se desenvolve nos ovários, frequentemente diagnosticado em estágios avançados.' },
+          { name: 'Câncer de Colo do Útero', description: 'Relacionado ao HPV, pode ser prevenido com vacinação e rastreamento regular.' },
+          { name: 'Câncer de Endométrio', description: 'Tumor que afeta o revestimento interno do útero, comum na pós-menopausa.' }
+        ]
+      }
     },
     {
       icon: GastrointestinalIcon,
@@ -82,6 +118,13 @@ export default function SpecialtiesSection() {
       description: 'Abordagem integrada para cânceres de estômago, intestino e fígado.',
       gradient: 'from-emerald-500/20 via-green-500/20 to-teal-500/20',
       iconBg: 'from-emerald-500/10 to-green-500/10',
+      modalContent: {
+        paragraphs: [
+          'A Oncologia Gastrointestinal abrange o tratamento de tumores do trato digestivo, incluindo esôfago, estômago, fígado, pâncreas, intestino delgado, cólon e reto. Esses cânceres representam uma parcela significativa dos diagnósticos oncológicos e requerem expertise especializada.',
+          'Nosso trabalho integra oncologia clínica, endoscopia terapêutica, cirurgia oncológica e radioterapia, sempre em um modelo de decisão compartilhada com o paciente. Utilizamos biomarcadores tumorais e testes moleculares para personalizar o tratamento e aumentar as chances de resposta.',
+          'Oferecemos também suporte nutricional especializado, fundamental para pacientes com tumores gastrointestinais, além de cuidados paliativos integrados desde o diagnóstico, visando o melhor controle de sintomas e qualidade de vida.'
+        ]
+      }
     },
     {
       icon: ResearchIcon,
@@ -89,6 +132,14 @@ export default function SpecialtiesSection() {
       description: 'Coordenação e condução de estudos clínicos voltados à inovação em oncologia.',
       gradient: 'from-violet-500/20 via-purple-500/20 to-fuchsia-500/20',
       iconBg: 'from-violet-500/10 to-purple-500/10',
+      modalContent: {
+        paragraphs: [
+          'A Pesquisa Clínica é fundamental para o avanço da oncologia e o desenvolvimento de novos tratamentos. Participar de um estudo clínico pode oferecer acesso a terapias inovadoras ainda não disponíveis comercialmente, sempre com rigoroso acompanhamento médico e ético.',
+          'Trabalhamos com protocolos nacionais e internacionais, em parceria com instituições renomadas, para testar novas drogas, combinações terapêuticas e abordagens de tratamento. A participação é sempre voluntária, informada e protegida por comitês de ética.',
+          'Se você tem interesse em participar de pesquisas clínicas ou quer saber mais sobre estudos disponíveis, nossa equipe está pronta para esclarecer dúvidas e avaliar sua elegibilidade para os protocolos em andamento.'
+        ],
+        studyLink: 'https://www.exemplo-de-estudo-aberto.com'
+      }
     },
   ];
 
@@ -119,35 +170,119 @@ export default function SpecialtiesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {specialties.map((specialty, index) => (
-            <div
-              key={index}
-              className={`group relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
-              style={{ animationDelay: `${(index + 3) * 150}ms` }}
-              data-testid={`specialty-card-${index}`}
-            >
-              <div className={`absolute -inset-1 bg-gradient-to-br ${specialty.gradient} rounded-3xl blur-xl opacity-50 group-hover:opacity-100 transition-all duration-500`} />
-              
-              <Card className="relative h-full p-8 backdrop-blur-sm bg-card/90 border-2 border-primary/10 rounded-3xl hover-elevate transition-all duration-500 hover:scale-[1.02] overflow-hidden group">
-                <div className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-br ${specialty.gradient} rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 -translate-y-24 translate-x-24`} />
+            <Dialog key={index} open={openModal === index} onOpenChange={(open) => setOpenModal(open ? index : null)}>
+              <div
+                className={`group relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+                style={{ animationDelay: `${(index + 3) * 150}ms` }}
+                data-testid={`specialty-card-${index}`}
+              >
+                <div className={`absolute -inset-1 bg-gradient-to-br ${specialty.gradient} rounded-3xl blur-xl opacity-50 group-hover:opacity-100 transition-all duration-500`} />
                 
-                <div className="relative">
-                  <div className={`inline-flex w-16 h-16 rounded-2xl bg-gradient-to-br ${specialty.iconBg} items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
-                    <specialty.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  
-                  <h3 className="font-display text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
-                    {specialty.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    {specialty.description}
-                  </p>
+                <DialogTrigger asChild>
+                  <button 
+                    className="relative h-full p-8 backdrop-blur-sm bg-card/90 border-2 border-primary/10 rounded-3xl hover-elevate transition-all duration-500 hover:scale-[1.02] overflow-hidden group cursor-pointer w-full text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  >
+                    <div className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-br ${specialty.gradient} rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 -translate-y-24 translate-x-24`} />
+                    
+                    <div className="relative">
+                      <div className={`inline-flex w-16 h-16 rounded-2xl bg-gradient-to-br ${specialty.iconBg} items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
+                        <specialty.icon className="w-8 h-8 text-primary" />
+                      </div>
+                      
+                      <h3 className="font-display text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                        {specialty.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground text-lg leading-relaxed">
+                        {specialty.description}
+                      </p>
 
-                  <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-primary/5 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-primary/5 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                  </button>
+                </DialogTrigger>
+              </div>
+
+              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-background via-primary/5 to-background border-2 border-primary/20 backdrop-blur-xl">
+                <DialogHeader>
+                  <DialogTitle 
+                    ref={(el) => { modalTitleRefs.current[index] = el; }}
+                    tabIndex={-1}
+                    className="font-display text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4 focus:outline-none"
+                  >
+                    {specialty.title}
+                  </DialogTitle>
+                  <DialogDescription className="sr-only">
+                    Informações detalhadas sobre {specialty.title}
+                  </DialogDescription>
+                </DialogHeader>
+
+                <div className="space-y-6 mt-4">
+                  {specialty.modalContent.paragraphs.map((paragraph, pIndex) => (
+                    <p key={pIndex} className="text-foreground/90 leading-relaxed text-base">
+                      {paragraph}
+                    </p>
+                  ))}
+
+                  {specialty.modalContent.tumorTypes && (
+                    <div className="mt-8 pt-6 border-t border-primary/20">
+                      <h4 className="font-display text-xl font-bold text-primary mb-4">
+                        Tipos de Tumores Ginecológicos
+                      </h4>
+                      <div className="space-y-4">
+                        {specialty.modalContent.tumorTypes.map((tumor, tIndex) => (
+                          <div key={tIndex} className="p-4 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10">
+                            <h5 className="font-semibold text-foreground mb-2">{tumor.name}</h5>
+                            <p className="text-sm text-muted-foreground">{tumor.description}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {specialty.modalContent.studyLink && (
+                    <div className="mt-8 pt-6 border-t border-primary/20">
+                      <h4 className="font-display text-xl font-bold text-primary mb-4">
+                        Estudos abertos no Hospital Sírio-Libanês
+                      </h4>
+                      <div className="flex flex-col sm:flex-row gap-3 mt-4">
+                        <Button
+                          onClick={() => window.open(specialty.modalContent.studyLink, '_blank')}
+                          className="gap-2 flex-1"
+                          variant="outline"
+                          data-testid="button-research-studies"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Ver estudos no Sírio
+                        </Button>
+                        <Button
+                          onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`, '_blank')}
+                          className="gap-2 flex-1 bg-green-600 hover:bg-green-700"
+                          data-testid="button-research-whatsapp"
+                        >
+                          <FaWhatsapp className="w-5 h-5" />
+                          Falar com a equipe
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+
+                  {!specialty.modalContent.studyLink && (
+                    <div className="mt-8 pt-6 border-t border-primary/20">
+                      <Button
+                        onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`, '_blank')}
+                        className="w-full gap-2 bg-green-600 hover:bg-green-700 h-12 text-base"
+                        data-testid={`button-whatsapp-${index}`}
+                      >
+                        <FaWhatsapp className="w-5 h-5" />
+                        Agendar pelo WhatsApp
+                      </Button>
+                    </div>
+                  )}
                 </div>
-              </Card>
-            </div>
-          ))}
+            </DialogContent>
+          </Dialog>
+        ))}
         </div>
 
         <div className={`mt-16 text-center ${isVisible ? 'animate-fade-in-up animation-delay-700' : 'opacity-0'}`}>
