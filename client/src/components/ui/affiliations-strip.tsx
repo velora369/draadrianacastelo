@@ -33,7 +33,7 @@ export default function AffiliationsStrip() {
       AutoScroll({ 
         speed: 1,
         startDelay: 0,
-        stopOnInteraction: false,
+        stopOnInteraction: true,
         stopOnMouseEnter: true,
         stopOnFocusIn: false,
         playOnInit: true
