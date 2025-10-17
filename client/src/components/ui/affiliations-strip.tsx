@@ -68,18 +68,18 @@ export default function AffiliationsStrip() {
               aria-roledescription="carousel"
               aria-label="Instituições afiliadas"
             >
-              <div className="flex gap-12">
+              <div className="flex gap-24">
                 {/* Duplicate items multiple times for seamless continuous loop */}
                 {[...affiliations, ...affiliations, ...affiliations, ...affiliations].map((affiliation, index) => (
                   <div 
                     key={index} 
-                    className="flex-[0_0_auto] flex items-center justify-center min-w-[200px]"
+                    className="flex-[0_0_auto] flex items-center justify-center w-32 h-16"
                   >
                     <img
                       src={affiliation.src}
                       alt={affiliation.alt}
                       aria-label={affiliation.label}
-                      className="h-12 w-auto transition-all duration-300"
+                      className="max-h-16 max-w-32 w-auto h-auto object-contain transition-all duration-300"
                       data-testid={`logo-${affiliation.label.toLowerCase().replace(/\s+/g, '-')}-${index}`}
                     />
                   </div>
@@ -92,12 +92,12 @@ export default function AffiliationsStrip() {
         {/* Mobile: Static grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:hidden items-center justify-items-center">
           {affiliations.map((affiliation, index) => (
-            <div key={index} className="flex items-center justify-center">
+            <div key={index} className="flex items-center justify-center w-32 h-16">
               <img
                 src={affiliation.src}
                 alt={affiliation.alt}
                 aria-label={affiliation.label}
-                className="h-12 w-auto transition-all duration-300"
+                className="max-h-16 max-w-32 w-auto h-auto object-contain transition-all duration-300"
                 data-testid={`logo-${affiliation.label.toLowerCase().replace(/\s+/g, '-')}-mobile`}
               />
             </div>
