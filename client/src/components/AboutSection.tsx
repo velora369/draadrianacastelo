@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { Heart, Stethoscope, Activity, GraduationCap, Building2, Microscope } from 'lucide-react';
+import { GraduationCap, Building2, Microscope } from 'lucide-react';
 
 export default function AboutSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,12 +26,6 @@ export default function AboutSection() {
       }
     };
   }, []);
-
-  const specialties = [
-    { icon: Stethoscope, label: 'Oncologia Torácica', color: 'from-blue-500/20 to-blue-600/20' },
-    { icon: Heart, label: 'Oncologia Ginecológica', color: 'from-pink-500/20 to-rose-600/20' },
-    { icon: Activity, label: 'Oncologia Gastrointestinal', color: 'from-green-500/20 to-emerald-600/20' },
-  ];
 
   const credentials = [
     { icon: Building2, text: 'Hospital Sírio-Libanês', lineBreak: false },
@@ -102,35 +96,6 @@ export default function AboutSection() {
                       cred.text
                     )}
                   </p>
-                </Card>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className={`${isVisible ? 'animate-fade-in-up animation-delay-500' : 'opacity-0'}`}>
-          <h3 className="text-2xl md:text-3xl font-display font-semibold text-center text-foreground mb-8">
-            Áreas de Especialização
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {specialties.map((specialty, index) => (
-              <div
-                key={index}
-                className="group relative"
-                style={{ animationDelay: `${(index + 8) * 100}ms` }}
-                data-testid={`specialty-badge-${index}`}
-              >
-                <div className={`absolute -inset-1 bg-gradient-to-br ${specialty.color} rounded-3xl blur-xl opacity-50 group-hover:opacity-100 transition-opacity`} />
-                
-                <Card className="relative p-8 backdrop-blur-sm bg-card/90 border-2 border-primary/10 rounded-3xl hover-elevate transition-all duration-500 hover:scale-105 hover:rotate-1 h-full flex flex-col items-center text-center group overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500" />
-                  
-                  <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500">
-                    <specialty.icon className="w-10 h-10 text-primary" />
-                  </div>
-                  
-                  <p className="relative text-lg font-semibold text-foreground">{specialty.label}</p>
                 </Card>
               </div>
             ))}
