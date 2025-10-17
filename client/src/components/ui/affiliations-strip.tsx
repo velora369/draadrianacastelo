@@ -58,50 +58,33 @@ export default function AffiliationsStrip() {
           Reconhecida por instituições de excelência
         </h2>
 
-        {/* Desktop: Continuous marquee carousel */}
-        <div className="hidden md:block">
-          <div className="relative">
-            <div 
-              className="overflow-hidden" 
-              ref={emblaRef}
-              role="region"
-              aria-roledescription="carousel"
-              aria-label="Instituições afiliadas"
-            >
-              <div className="flex gap-x-24">
-                {/* Duplicate items multiple times for seamless continuous loop */}
-                {[...affiliations, ...affiliations, ...affiliations, ...affiliations].map((affiliation, index) => (
-                  <div 
-                    key={index} 
-                    className="flex-[0_0_auto] flex items-center justify-center"
-                  >
-                    <img
-                      src={affiliation.src}
-                      alt={affiliation.alt}
-                      aria-label={affiliation.label}
-                      className="h-12 w-auto object-contain transition-all duration-300"
-                      data-testid={`logo-${affiliation.label.toLowerCase().replace(/\s+/g, '-')}-${index}`}
-                    />
-                  </div>
-                ))}
-              </div>
+        {/* Continuous marquee carousel for all screen sizes */}
+        <div className="relative">
+          <div 
+            className="overflow-hidden" 
+            ref={emblaRef}
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Instituições afiliadas"
+          >
+            <div className="flex gap-x-16 md:gap-x-32">
+              {/* Duplicate items multiple times for seamless continuous loop */}
+              {[...affiliations, ...affiliations, ...affiliations, ...affiliations].map((affiliation, index) => (
+                <div 
+                  key={index} 
+                  className="flex-[0_0_auto] flex items-center justify-center min-w-[120px] md:min-w-[180px]"
+                >
+                  <img
+                    src={affiliation.src}
+                    alt={affiliation.alt}
+                    aria-label={affiliation.label}
+                    className="h-10 md:h-12 w-auto object-contain transition-all duration-300"
+                    data-testid={`logo-${affiliation.label.toLowerCase().replace(/\s+/g, '-')}-${index}`}
+                  />
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-
-        {/* Mobile: Static grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-12 md:hidden items-center justify-items-center">
-          {affiliations.map((affiliation, index) => (
-            <div key={index} className="flex items-center justify-center">
-              <img
-                src={affiliation.src}
-                alt={affiliation.alt}
-                aria-label={affiliation.label}
-                className="h-10 w-auto object-contain transition-all duration-300"
-                data-testid={`logo-${affiliation.label.toLowerCase().replace(/\s+/g, '-')}-mobile`}
-              />
-            </div>
-          ))}
         </div>
       </div>
     </section>
