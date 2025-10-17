@@ -1,0 +1,82 @@
+Objetivo:
+Adicionar uma nova faixa de logos na página da Dra. Adriana, imediatamente abaixo da seção “Sobre”, mais precisamente logo abaixo dos cards que mostram “Hospital Sírio-Libanês”, “Hospital Universitário de Brasília”, “Doutoranda pela UnB”, e “Oncologia de Precisão”.
+
+Função:
+Criar um componente AffiliationsStrip (Client Component) dentro de /components/ui/affiliations-strip.tsx.
+O componente exibe 3 logos com animação em loop contínuo (carousel/marquee) e é totalmente responsivo.
+
+Frase/título do bloco (heading):
+
+Reconhecida por instituições de excelência
+
+Imagens (baixar e salvar em public/logos/dra-adriana/):
+
+/logos/dra-adriana/sirio.webp
+https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/chatgpt-image-17-de-out.-de-2025-01_41_23.webp
+
+alt: Hospital Sírio-Libanês
+
+/logos/dra-adriana/hub.webp
+https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/chatgpt-image-17-de-out.-de-2025-01_48_08.webp
+
+alt: Hospital Universitário de Brasília (HUB)
+
+/logos/dra-adriana/unb.webp
+https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/unb-logo.webp
+
+alt: Universidade de Brasília (UnB)
+
+Layout e comportamento:
+
+Desktop (≥768px):
+
+As logos se movem horizontalmente em loop contínuo com o plugin embla-carousel-auto-scroll.
+
+Loop suave, velocidade moderada (speed: 1), pausa no hover (stopOnMouseEnter: true) e no foco (stopOnFocusIn: true).
+
+Borda gradiente lateral com bg-gradient-to-r/l criando fade-in/out nas extremidades.
+
+Cada logo tem h-8 w-auto, opacity-80 grayscale hover:opacity-100 hover:grayscale-0.
+
+Mobile (≤640px):
+
+Fallback em grid estático com as 3 logos centralizadas, sem autoplay.
+
+Estilo do container:
+
+Fundo #FAFAF7, bordas superior e inferior #EAEDEA, padding vertical py-12.
+
+Heading centralizado em #0F2C4D (text-lg md:text-xl font-semibold).
+
+Responsividade e acessibilidade:
+
+Carousel deve ter role="region" e aria-roledescription="carousel".
+
+Cada <img> precisa de alt e aria-label com o nome da instituição.
+
+O foco ou interação do usuário pausa o autoplay.
+
+Inserção exata na página:
+
+Renderizar o componente logo abaixo dos cards da seção “Sobre”.
+
+Se o arquivo da seção “Sobre” estiver em components/sections/about.tsx ou similar, importar o componente e inserir após o grid dos cards, antes da próxima seção (ex: “Especialidades”).
+
+Exemplo:
+
+<AboutSection />
+<AffiliationsStrip />
+<SpecialtiesSection />
+
+
+Critérios de aceite:
+
+Loop contínuo sem travar.
+
+Logos com altura uniforme (32px).
+
+Perfeito contraste AA.
+
+Mobile 100% responsivo.
+
+Sem erros de acessibilidade no Lighthouse.
