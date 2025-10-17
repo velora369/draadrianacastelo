@@ -79,7 +79,7 @@ export default function AffiliationsStrip() {
                       src={affiliation.src}
                       alt={affiliation.alt}
                       aria-label={affiliation.label}
-                      className="max-h-16 max-w-32 w-auto h-auto object-contain transition-all duration-300"
+                      className="h-12 w-auto object-contain transition-all duration-300"
                       data-testid={`logo-${affiliation.label.toLowerCase().replace(/\s+/g, '-')}-${index}`}
                     />
                   </div>
@@ -97,7 +97,7 @@ export default function AffiliationsStrip() {
                 src={affiliation.src}
                 alt={affiliation.alt}
                 aria-label={affiliation.label}
-                className="max-h-16 max-w-32 w-auto h-auto object-contain transition-all duration-300"
+                className="h-12 w-auto object-contain transition-all duration-300"
                 data-testid={`logo-${affiliation.label.toLowerCase().replace(/\s+/g, '-')}-mobile`}
               />
             </div>
