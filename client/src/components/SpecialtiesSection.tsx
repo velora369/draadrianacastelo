@@ -138,6 +138,23 @@ export default function SpecialtiesSection() {
           'Trabalhamos com protocolos nacionais e internacionais, em parceria com instituições renomadas, para testar novas drogas, combinações terapêuticas e abordagens de tratamento. A participação é sempre voluntária, informada e protegida por comitês de ética.',
           'Se você tem interesse em participar de pesquisas clínicas ou quer saber mais sobre estudos disponíveis, nossa equipe está pronta para esclarecer dúvidas e avaliar sua elegibilidade para os protocolos em andamento.'
         ],
+        studies: [
+          {
+            title: 'Estudo LUNA-03',
+            description: 'Avaliação da eficácia de terapias combinadas em câncer de pulmão metastático.',
+            link: 'https://www.exemplo-de-estudo-luna03.com'
+          },
+          {
+            title: 'Estudo HER-GYN',
+            description: 'Investigação sobre novas abordagens de imunoterapia em tumores ginecológicos.',
+            link: 'https://www.exemplo-de-estudo-hergyn.com'
+          },
+          {
+            title: 'Estudo GASTRO-PRECISION',
+            description: 'Análise de terapias direcionadas por biomarcadores em câncer gastrointestinal.',
+            link: 'https://www.exemplo-de-estudo-gastroprecision.com'
+          }
+        ],
         studyLink: 'https://www.exemplo-de-estudo-aberto.com'
       }
     },
@@ -240,7 +257,64 @@ export default function SpecialtiesSection() {
                     </div>
                   )}
 
-                  {specialty.modalContent.studyLink && (
+                  {specialty.modalContent.studies && (
+                    <div className="mt-8 pt-6 border-t border-primary/20">
+                      <h4 className="font-display text-xl font-bold text-foreground mb-6">
+                        Estudos abertos no Hospital Sírio-Libanês
+                      </h4>
+                      
+                      <div className="space-y-4 mb-6">
+                        {specialty.modalContent.studies.map((study, sIndex) => (
+                          <div 
+                            key={sIndex}
+                            className="p-5 rounded-xl border transition-all duration-300 hover:shadow-md group"
+                            style={{ 
+                              backgroundColor: '#FAFAF7',
+                              borderColor: '#EAEDEA'
+                            }}
+                            data-testid={`study-card-${sIndex}`}
+                          >
+                            <h5 className="font-bold text-foreground text-lg mb-2 group-hover:text-primary transition-colors">
+                              {study.title}
+                            </h5>
+                            <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                              {study.description}
+                            </p>
+                            <button
+                              onClick={() => window.open(study.link, '_blank')}
+                              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                              data-testid={`link-study-${sIndex}`}
+                            >
+                              Ver detalhes
+                              <ExternalLink className="w-4 h-4" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                        <Button
+                          onClick={() => window.open(specialty.modalContent.studyLink, '_blank')}
+                          className="gap-2 flex-1"
+                          variant="outline"
+                          data-testid="button-research-studies"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Ver todos os estudos no Sírio
+                        </Button>
+                        <Button
+                          onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`, '_blank')}
+                          className="gap-2 flex-1 bg-green-600 hover:bg-green-700"
+                          data-testid="button-research-whatsapp"
+                        >
+                          <FaWhatsapp className="w-5 h-5" />
+                          Falar com a equipe
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+
+                  {specialty.modalContent.studyLink && !specialty.modalContent.studies && (
                     <div className="mt-8 pt-6 border-t border-primary/20">
                       <h4 className="font-display text-xl font-bold text-primary mb-4">
                         Estudos abertos no Hospital Sírio-Libanês
