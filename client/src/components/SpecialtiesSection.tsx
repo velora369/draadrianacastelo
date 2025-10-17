@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { Heart, Activity, Stethoscope, FlaskConical, Zap } from 'lucide-react';
+import { Heart, Stethoscope, Activity, Microscope, Dna, Zap } from 'lucide-react';
 
 export default function SpecialtiesSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,6 +29,13 @@ export default function SpecialtiesSection() {
 
   const specialties = [
     {
+      icon: Stethoscope,
+      title: 'Oncologia Torácica',
+      description: 'Tratamento especializado para câncer de pulmão e demais tumores torácicos.',
+      gradient: 'from-blue-500/20 via-cyan-500/20 to-sky-500/20',
+      iconBg: 'from-blue-500/10 to-cyan-500/10',
+    },
+    {
       icon: Heart,
       title: 'Oncologia Ginecológica',
       description: 'Diagnóstico e tratamento personalizado de tumores ginecológicos.',
@@ -43,18 +50,18 @@ export default function SpecialtiesSection() {
       iconBg: 'from-emerald-500/10 to-green-500/10',
     },
     {
-      icon: Stethoscope,
-      title: 'Oncologia Torácica',
-      description: 'Tratamento especializado para câncer de pulmão e demais tumores torácicos.',
-      gradient: 'from-blue-500/20 via-cyan-500/20 to-sky-500/20',
-      iconBg: 'from-blue-500/10 to-cyan-500/10',
-    },
-    {
-      icon: FlaskConical,
+      icon: Microscope,
       title: 'Pesquisa Clínica',
       description: 'Coordenação e condução de estudos clínicos voltados à inovação em oncologia.',
       gradient: 'from-violet-500/20 via-purple-500/20 to-fuchsia-500/20',
       iconBg: 'from-violet-500/10 to-purple-500/10',
+    },
+    {
+      icon: Dna,
+      title: 'Oncologia de Precisão',
+      description: 'Medicina personalizada baseada em biomarcadores e perfil molecular tumoral.',
+      gradient: 'from-amber-500/20 via-orange-500/20 to-red-500/20',
+      iconBg: 'from-amber-500/10 to-orange-500/10',
     },
   ];
 

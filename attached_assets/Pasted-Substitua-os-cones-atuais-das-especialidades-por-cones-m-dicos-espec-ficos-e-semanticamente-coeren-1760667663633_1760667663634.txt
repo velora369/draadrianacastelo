@@ -1,0 +1,55 @@
+Substitua os ícones atuais das especialidades por ícones médicos específicos e semanticamente coerentes com cada área, garantindo unidade visual e clareza para o paciente.
+
+Todos os ícones devem:
+
+Ter estilo linear minimalista (traço uniforme, 2–3px, sem preenchimentos excessivos).
+
+Ser monocromáticos na cor primária (#0F2C4D) com fundo claro.
+
+Possuir contraste AA e formato vetorial (SVG).
+
+Ter proporção uniforme (entre 32px e 48px) e manter simetria óptica para evitar desalinhamento.
+
+Definições e sugestões específicas:
+
+1. Oncologia Torácica
+
+Ícone principal: par de pulmões estilizados, com traqueia e ramificações simples.
+
+Alternativas: tórax humano minimalista, raio X de pulmões, ou silhueta de cavidade torácica.
+
+Conceito: representar sistema respiratório e áreas pulmonares de forma limpa e técnica.
+
+2. Oncologia Ginecológica
+
+Ícone principal: útero com trompas e ovários simplificados.
+
+Alternativas: símbolo de saúde feminina (sinal feminino com coração), ou silhueta corporal feminina abstrata.
+
+Conceito: representar cuidados reprodutivos e femininos de maneira científica e respeitosa (sem sexualização).
+
+3. Oncologia Gastrointestinal
+
+Ícone principal: representação simplificada do trato digestivo (estômago e intestino).
+
+Alternativas: ícone de estômago isolado, esquema de tubo digestivo com curvas suaves, ou ícone de absorção/metabolismo.
+
+Conceito: transmitir sistema digestivo e processos internos com leveza e precisão anatômica.
+
+4. Pesquisa Clínica
+
+Ícone principal: microscópio com tubo ocular e base em perspectiva.
+
+Alternativas: frasco de laboratório (Erlenmeyer) com bolhas químicas; documento com símbolo de DNA; ou gráfico médico em análise.
+
+Conceito: representar investigação científica, inovação e método experimental de forma neutra e institucional.
+
+5. Oncologia de Precisão
+
+Ícone principal: hélice de DNA ou alvo molecular (círculos concêntricos com marcação no centro).
+
+Alternativas: símbolo de rede molecular, microscópio genético, ou código genético binário estilizado.
+
+Conceito: comunicar personalização terapêutica baseada em biomarcadores, reforçando modernidade e tecnologia.
+
+Ao aplicar, garanta alinhamento horizontal entre os ícones, espaço de respiro de no mínimo 16px, e tooltips com descrição textual curta (“Oncologia Torácica”, “Pesquisa Clínica”, etc.) para acessibilidade.
