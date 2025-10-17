@@ -27,9 +27,9 @@ export default function AboutSection() {
   }, []);
 
   const credentials = [
-    { text: 'Hospital Sírio-Libanês', lineBreak: false, gradient: 'from-blue-600 to-cyan-600' },
-    { text: 'Hospital Universitário', text2: 'de Brasília', lineBreak: true, gradient: 'from-violet-600 to-purple-600' },
-    { text: 'Doutoranda pela UnB', lineBreak: false, gradient: 'from-emerald-600 to-teal-600' },
+    { text: 'Hospital Sírio-Libanês', lineBreak: false, gradient: 'from-blue-900 to-blue-700' },
+    { text: 'Hospital Universitário', text2: 'de Brasília', lineBreak: true, gradient: 'from-rose-600 to-pink-600' },
+    { text: 'Doutoranda pela UnB', lineBreak: false, gradient: 'from-blue-900 to-blue-700' },
     { text: 'Oncologia de Precisão', lineBreak: false, gradient: 'from-rose-600 to-pink-600' },
   ];
 
