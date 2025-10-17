@@ -1,21 +1,21 @@
 'use client';
 
 import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
+import AutoScroll from 'embla-carousel-auto-scroll';
 
 const affiliations = [
   {
-    src: '/logos/dra-adriana/sirio.webp',
+    src: 'https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/chatgpt-image-17-de-out.-de-2025-01_41_23.webp',
     alt: 'Hospital Sírio-Libanês',
     label: 'Hospital Sírio-Libanês'
   },
   {
-    src: '/logos/dra-adriana/hub.webp',
+    src: 'https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/chatgpt-image-17-de-out.-de-2025-01_48_08.webp',
     alt: 'Hospital Universitário de Brasília (HUB)',
     label: 'Hospital Universitário de Brasília'
   },
   {
-    src: '/logos/dra-adriana/unb.webp',
+    src: 'https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/unb-logo.webp',
     alt: 'Universidade de Brasília (UnB)',
     label: 'Universidade de Brasília'
   }
@@ -25,17 +25,18 @@ export default function AffiliationsStrip() {
   const [emblaRef] = useEmblaCarousel(
     { 
       loop: true,
-      align: 'start',
+      align: 'center',
       skipSnaps: false,
-      dragFree: false,
-      containScroll: 'trimSnaps'
+      containScroll: false
     },
     [
-      Autoplay({ 
-        delay: 3000,
+      AutoScroll({ 
+        speed: 0.8,
+        startDelay: 0,
         stopOnInteraction: false,
         stopOnMouseEnter: true,
-        stopOnFocusIn: true
+        stopOnFocusIn: false,
+        playOnInit: true
       })
     ]
   );
@@ -57,15 +58,9 @@ export default function AffiliationsStrip() {
           Reconhecida por instituições de excelência
         </h2>
 
-        {/* Desktop: Carousel with autoplay */}
+        {/* Desktop: Continuous marquee carousel */}
         <div className="hidden md:block">
           <div className="relative">
-            {/* Left fade gradient */}
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#FAFAF7] to-transparent z-10 pointer-events-none" />
-            
-            {/* Right fade gradient */}
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#FAFAF7] to-transparent z-10 pointer-events-none" />
-            
             <div 
               className="overflow-hidden" 
               ref={emblaRef}
@@ -73,12 +68,12 @@ export default function AffiliationsStrip() {
               aria-roledescription="carousel"
               aria-label="Instituições afiliadas"
             >
-              <div className="flex gap-16">
-                {/* Duplicate items for seamless loop */}
-                {[...affiliations, ...affiliations, ...affiliations].map((affiliation, index) => (
+              <div className="flex gap-20">
+                {/* Duplicate items multiple times for seamless continuous loop */}
+                {[...affiliations, ...affiliations, ...affiliations, ...affiliations].map((affiliation, index) => (
                   <div 
                     key={index} 
-                    className="flex-[0_0_auto] flex items-center justify-center"
+                    className="flex-[0_0_auto] flex items-center justify-center min-w-[200px]"
                   >
                     <img
                       src={affiliation.src}
