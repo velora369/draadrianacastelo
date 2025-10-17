@@ -1,0 +1,80 @@
+Objetivo:
+Inserir, logo abaixo da seção “Sobre” (abaixo dos cards com afiliações), uma faixa com 3 logos em loop contínuo e responsivo. No mobile, renderizar como grid estático.
+
+Frase do cabeçalho (usar exatamente):
+Reconhecida por instituições de excelência
+
+Imagens (baixar e salvar localmente em public/logos/dra-adriana/):
+
+sirio.webp → https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/chatgpt-image-17-de-out.-de-2025-01_41_23.webp
+
+hub.webp → https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/chatgpt-image-17-de-out.-de-2025-01_48_08.webp
+
+unb.webp → https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/unb-logo.webp
+
+Alts (usar exatamente):
+
+Hospital Sírio-Libanês
+
+Hospital Universitário de Brasília (HUB)
+
+Universidade de Brasília (UnB)
+
+Componente: criar components/ui/affiliations-strip.tsx (Client Component). Pode reutilizar o mesmo Carousel + AutoScroll já instalados.
+
+Desktop: marquee/carousel em loop, velocidade suave, pausa no hover e no foco.
+
+Mobile (≤640px): fallback em grid (3 colunas), sem autoplay.
+
+Duplicar a lista de logos no carousel para garantir loop contínuo.
+
+Estilo:
+
+Seção com fundo #FAFAF7, borda superior e inferior #EAEDEA, padding vertical confortável.
+
+Título centralizado em #0F2C4D.
+
+Cada logo com altura fixa 32px (h-8), largura automática (w-auto), loading="lazy" e decoding="async".
+
+Logos em grayscale 80% e opacity 80% por padrão; no hover/focus: remover grayscale e opacity (desktop).
+
+Margem/spacing entre logos consistente (gap ~48px em desktop).
+
+Máscaras de borda esquerda/direita com bg-gradient-to-r/l a partir de from-background para to-transparent.
+
+Acessibilidade:
+
+aria-label com o nome da instituição em cada <img>.
+
+Carousel com role="region" e aria-roledescription="carousel".
+
+Foco inicial pausando o autoplay (stopOnFocusIn: true).
+
+Teclas setas esquerda/direita para navegação manual (onde aplicável).
+
+Dados (usar estes paths locais):
+
+const LOGOS_DRA = [
+  { id: "sirio", alt: "Hospital Sírio-Libanês", src: "/logos/dra-adriana/sirio.webp" },
+  { id: "hub",   alt: "Hospital Universitário de Brasília (HUB)", src: "/logos/dra-adriana/hub.webp" },
+  { id: "unb",   alt: "Universidade de Brasília (UnB)", src: "/logos/dra-adriana/unb.webp" },
+];
+
+
+Inserção na página:
+
+Importar e renderizar o componente imediatamente abaixo da seção “Sobre a Dra. Adriana”, antes do próximo bloco de conteúdo.
+
+Usar o heading definido acima.
+
+Critérios de aceite (QA):
+
+Loop contínuo e suave em desktop, sem trancos; pausa ao hover/foco.
+
+Logos com altura visual idêntica (32px) e sem distorção.
+
+Mobile mostra grid de 3 logos centralizados (sem autoplay).
+
+Título e faixa seguem a paleta: primary #0F2C4D, bg #FAFAF7, border #EAEDEA.
+
+Lighthouse: sem erros de acessibilidade relacionados a images/alt/contrast.

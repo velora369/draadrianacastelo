@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { GraduationCap, Building2, Microscope } from 'lucide-react';
 
 export default function AboutSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,10 +27,10 @@ export default function AboutSection() {
   }, []);
 
   const credentials = [
-    { icon: Building2, text: 'Hospital Sírio-Libanês', lineBreak: false },
-    { icon: Building2, text: 'Hospital Universitário', text2: 'de Brasília', lineBreak: true },
-    { icon: GraduationCap, text: 'Doutoranda pela UnB', lineBreak: false },
-    { icon: Microscope, text: 'Oncologia de Precisão', lineBreak: false },
+    { text: 'Hospital Sírio-Libanês', lineBreak: false, gradient: 'from-blue-600 to-cyan-600' },
+    { text: 'Hospital Universitário', text2: 'de Brasília', lineBreak: true, gradient: 'from-violet-600 to-purple-600' },
+    { text: 'Doutoranda pela UnB', lineBreak: false, gradient: 'from-emerald-600 to-teal-600' },
+    { text: 'Oncologia de Precisão', lineBreak: false, gradient: 'from-rose-600 to-pink-600' },
   ];
 
   return (
@@ -80,22 +79,26 @@ export default function AboutSection() {
                 key={index}
                 className="group relative"
                 style={{ animationDelay: `${(index + 5) * 100}ms` }}
+                data-testid={`credential-card-${index}`}
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur opacity-50 group-hover:opacity-100 transition-opacity" />
+                <div className={`absolute -inset-0.5 bg-gradient-to-br ${cred.gradient} rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity`} />
                 
-                <Card className="relative p-6 backdrop-blur-sm bg-card/90 border border-primary/10 rounded-2xl hover-elevate transition-all duration-300 hover:scale-105 h-full flex flex-col items-center justify-center text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                    <cred.icon className="w-7 h-7 text-primary" />
+                <Card className="relative p-6 backdrop-blur-sm bg-card/90 border-2 border-transparent hover:border-current rounded-2xl transition-all duration-500 hover:scale-105 h-full flex flex-col items-center justify-center text-center overflow-hidden">
+                  <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${cred.gradient} opacity-60 group-hover:opacity-100 transition-opacity`} />
+                  
+                  <div className="relative z-10 flex flex-col items-center justify-center min-h-[5rem]">
+                    <p className={`text-base font-bold bg-gradient-to-r ${cred.gradient} bg-clip-text text-transparent leading-tight group-hover:scale-105 transition-transform`}>
+                      {cred.lineBreak ? (
+                        <>
+                          {cred.text}<br />{cred.text2}
+                        </>
+                      ) : (
+                        cred.text
+                      )}
+                    </p>
                   </div>
-                  <p className="text-sm font-medium text-foreground leading-tight min-h-[2.5rem] flex items-center">
-                    {cred.lineBreak ? (
-                      <>
-                        {cred.text}<br />{cred.text2}
-                      </>
-                    ) : (
-                      cred.text
-                    )}
-                  </p>
+                  
+                  <div className={`absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl ${cred.gradient} rounded-tl-full opacity-5 group-hover:opacity-10 transition-opacity`} />
                 </Card>
               </div>
             ))}
