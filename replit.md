@@ -6,6 +6,35 @@ This is a professional landing page for Dr. Adriana Castelo C. de Moura, a medic
 
 ## Recent Changes
 
+### October 27, 2025
+- **Enhanced header logo visibility**: Increased logo size by 50% for better readability
+  - Mobile: 120px (was 80px)
+  - Tablet: 144px (was 96px)
+  - Desktop: 168px (was 112px)
+
+- **Added Events section**: New "Eventos" section showcasing international medical conferences
+  - Four major conference cards with images and detailed descriptions
+  - ASCO Annual Meeting - USA
+  - IASLC World Conference on Lung Cancer - Spain 2025
+  - ELCC European Lung Cancer Congress - 2025
+  - Annual Meeting on Women's Cancer - Seattle, WA 2025
+  - Responsive grid layout with hover effects and animations
+  - Navigation menu updated to include "Eventos" link
+
+- **Expanded tumor type examples across all specialties**: Extended the tumor types feature from Oncologia Ginecológica to all clinical specialties
+  - **Oncologia Torácica** now includes 4 tumor examples:
+    - Câncer de Pulmão de Não Pequenas Células (NSCLC)
+    - Câncer de Pulmão de Pequenas Células (SCLC)
+    - Mesotelioma Pleural
+    - Timoma e Carcinoma Tímico
+  - **Oncologia Gastrointestinal** now includes 4 tumor examples:
+    - Câncer Colorretal
+    - Câncer de Estômago (Gástrico)
+    - Câncer de Pâncreas
+    - Carcinoma Hepatocelular
+  - **Dynamic section titles**: Tumor type section headers now adapt based on specialty (Torácicos, Ginecológicos, Gastrointestinais)
+  - All tumor examples include name and medical description for patient education
+
 ### October 17, 2025
 - **Implemented interactive modals for specialty cards**: Added Dialog-based modals with full accessibility support
   - Each specialty card (Torácica, Ginecológica, Gastrointestinal, Pesquisa Clínica) now opens an educational modal with detailed content
