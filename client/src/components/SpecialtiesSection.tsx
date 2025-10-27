@@ -256,7 +256,9 @@ export default function SpecialtiesSection() {
                   {specialty.modalContent.tumorTypes && (
                     <div className="mt-8 pt-6 border-t border-primary/20">
                       <h4 className="font-display text-xl font-bold text-primary mb-4">
-                        Tipos de Tumores Ginecológicos
+                        {specialty.title === 'Oncologia Torácica' && 'Tipos de Tumores Torácicos'}
+                        {specialty.title === 'Oncologia Ginecológica' && 'Tipos de Tumores Ginecológicos'}
+                        {specialty.title === 'Oncologia Gastrointestinal' && 'Tipos de Tumores Gastrointestinais'}
                       </h4>
                       <div className="space-y-4">
                         {specialty.modalContent.tumorTypes.map((tumor, tIndex) => (
