@@ -90,6 +90,12 @@ export default function SpecialtiesSection() {
           'A Oncologia Torácica é uma área altamente especializada dedicada ao diagnóstico e tratamento de tumores que afetam os pulmões, pleura, mediastino e outras estruturas da cavidade torácica. Com os avanços da medicina personalizada e terapias-alvo, hoje é possível oferecer tratamentos cada vez mais eficazes e menos invasivos.',
           'Nosso foco está em proporcionar um cuidado multidisciplinar, integrando oncologia clínica, cirurgia torácica, radioterapia e medicina de suporte. Cada paciente recebe um plano terapêutico individualizado, baseado nas características específicas do tumor e no perfil molecular da doença.',
           'Além do tratamento, oferecemos suporte contínuo para manejo de sintomas, reabilitação pulmonar e acompanhamento oncológico de longo prazo, sempre priorizando a qualidade de vida e o bem-estar do paciente.'
+        ],
+        tumorTypes: [
+          { name: 'Câncer de Pulmão de Não Pequenas Células (NSCLC)', description: 'Tipo mais comum de câncer de pulmão, inclui adenocarcinoma, carcinoma de células escamosas e carcinoma de grandes células.' },
+          { name: 'Câncer de Pulmão de Pequenas Células (SCLC)', description: 'Tumor agressivo que geralmente está associado ao tabagismo e tem rápido crescimento.' },
+          { name: 'Mesotelioma Pleural', description: 'Tumor raro da pleura, frequentemente relacionado à exposição ao amianto.' },
+          { name: 'Timoma e Carcinoma Tímico', description: 'Tumores originados no timo, localizados no mediastino anterior.' }
         ]
       }
     },
@@ -123,6 +129,12 @@ export default function SpecialtiesSection() {
           'A Oncologia Gastrointestinal abrange o tratamento de tumores do trato digestivo, incluindo esôfago, estômago, fígado, pâncreas, intestino delgado, cólon e reto. Esses cânceres representam uma parcela significativa dos diagnósticos oncológicos e requerem expertise especializada.',
           'Nosso trabalho integra oncologia clínica, endoscopia terapêutica, cirurgia oncológica e radioterapia, sempre em um modelo de decisão compartilhada com o paciente. Utilizamos biomarcadores tumorais e testes moleculares para personalizar o tratamento e aumentar as chances de resposta.',
           'Oferecemos também suporte nutricional especializado, fundamental para pacientes com tumores gastrointestinais, além de cuidados paliativos integrados desde o diagnóstico, visando o melhor controle de sintomas e qualidade de vida.'
+        ],
+        tumorTypes: [
+          { name: 'Câncer Colorretal', description: 'Tumor que afeta o cólon ou reto, um dos cânceres mais comuns e com alta taxa de cura quando detectado precocemente.' },
+          { name: 'Câncer de Estômago (Gástrico)', description: 'Tumor que se desenvolve no revestimento do estômago, frequentemente relacionado à infecção por H. pylori.' },
+          { name: 'Câncer de Pâncreas', description: 'Tumor agressivo do pâncreas, muitas vezes diagnosticado em estágios avançados, requer abordagem multidisciplinar.' },
+          { name: 'Carcinoma Hepatocelular', description: 'Tipo mais comum de câncer de fígado, geralmente associado a cirrose hepática ou hepatite viral crônica.' }
         ]
       }
     },
