@@ -71,13 +71,7 @@ export default function EventsSection() {
       
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16">
-          <div className={`inline-block mb-4 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}>
-            <div className="px-6 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20">
-              <span className="text-sm font-semibold text-primary">Atualização Constante</span>
-            </div>
-          </div>
-          
-          <h2 className={`font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 ${isVisible ? 'animate-fade-in-up animation-delay-100' : 'opacity-0'}`}>
+          <h2 className={`font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Eventos e Congressos
           </h2>
           
