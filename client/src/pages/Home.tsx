@@ -4,6 +4,7 @@ import AboutSection from '@/components/AboutSection';
 import AffiliationsStrip from '@/components/ui/affiliations-strip';
 import SpecialtiesSection from '@/components/SpecialtiesSection';
 import HumanizedSection from '@/components/HumanizedSection';
+import EventsSection from '@/components/EventsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import GoogleReviewsSection from '@/components/GoogleReviewsSection';
 import ContactSection from '@/components/ContactSection';
@@ -19,6 +20,7 @@ export default function Home() {
         <AffiliationsStrip />
         <SpecialtiesSection />
         <HumanizedSection />
+        <EventsSection />
         <TestimonialsSection />
         <GoogleReviewsSection />
         <ContactSection />

@@ -69,6 +69,13 @@ export default function Header() {
               Especialidades
             </button>
             <button 
+              onClick={() => scrollToSection('eventos')} 
+              className="text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-md transition-colors"
+              data-testid="nav-eventos"
+            >
+              Eventos
+            </button>
+            <button 
               onClick={() => scrollToSection('depoimentos')} 
               className="text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-md transition-colors"
               data-testid="nav-depoimentos"
@@ -127,6 +134,13 @@ export default function Header() {
                 data-testid="nav-mobile-especialidades"
               >
                 Especialidades
+              </button>
+              <button 
+                onClick={() => scrollToSection('eventos')} 
+                className="text-left text-foreground hover-elevate active-elevate-2 px-4 py-3 rounded-md"
+                data-testid="nav-mobile-eventos"
+              >
+                Eventos
               </button>
               <button 
                 onClick={() => scrollToSection('depoimentos')} 
