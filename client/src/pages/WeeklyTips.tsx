@@ -1,8 +1,62 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ArrowLeft, Users, Stethoscope, Calendar, ExternalLink } from "lucide-react";
+import { ArrowLeft, Users, Stethoscope, Calendar, ExternalLink, CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+interface ContentSection {
+  type: 'paragraph' | 'heading' | 'list';
+  content: string | string[];
+}
+
+function parseContent(content: string): ContentSection[] {
+  const sections: ContentSection[] = [];
+  const lines = content.split('\n');
+  
+  let currentList: string[] = [];
+  
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+    
+    if (!trimmed) {
+      if (currentList.length > 0) {
+        sections.push({ type: 'list', content: currentList });
+        currentList = [];
+      }
+      return;
+    }
+    
+    if (trimmed.startsWith('**') && trimmed.endsWith('**')) {
+      if (currentList.length > 0) {
+        sections.push({ type: 'list', content: currentList });
+        currentList = [];
+      }
+      const heading = trimmed.replace(/\*\*/g, '');
+      if (heading.trim()) {
+        sections.push({ type: 'heading', content: heading.trim() });
+      }
+    }
+    else if (trimmed.startsWith('•') || /^\d+\./.test(trimmed)) {
+      const item = trimmed.replace(/^[•\d+\.\s]+/, '').trim();
+      if (item) {
+        currentList.push(item);
+      }
+    }
+    else {
+      if (currentList.length > 0) {
+        sections.push({ type: 'list', content: currentList });
+        currentList = [];
+      }
+      sections.push({ type: 'paragraph', content: trimmed });
+    }
+  });
+  
+  if (currentList.length > 0) {
+    sections.push({ type: 'list', content: currentList });
+  }
+  
+  return sections;
+}
 
 type TipCategory = "patients" | "doctors";
 
@@ -264,19 +318,48 @@ export default function WeeklyTips() {
                     </p>
 
                     {expandedTip === tip.id ? (
-                      <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                        <div className="prose dark:prose-invert max-w-none">
-                          {tip.content.split('\n').map((paragraph, idx) => (
-                            paragraph.trim() && (
-                              <p key={idx} className="mb-3 text-gray-700 dark:text-gray-300 whitespace-pre-line">
-                                {paragraph}
+                      <div className="mt-6 pt-6 border-t-2 border-[#d4a574]/20">
+                        <article className="prose prose-lg dark:prose-invert max-w-none">
+                          {parseContent(tip.content).map((section, idx) => {
+                            if (section.type === 'heading') {
+                              return (
+                                <h3 
+                                  key={idx} 
+                                  className="text-2xl font-bold text-[#1a3d5c] dark:text-blue-300 mt-8 mb-4 first:mt-0"
+                                >
+                                  {section.content as string}
+                                </h3>
+                              );
+                            }
+                            
+                            if (section.type === 'list') {
+                              return (
+                                <ul key={idx} className="space-y-3 my-6">
+                                  {(section.content as string[]).map((item, itemIdx) => (
+                                    <li key={itemIdx} className="flex items-start gap-3">
+                                      <CheckCircle2 className="w-5 h-5 text-[#d4a574] mt-0.5 flex-shrink-0" />
+                                      <span className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                        {item}
+                                      </span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              );
+                            }
+                            
+                            return (
+                              <p 
+                                key={idx} 
+                                className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 text-base"
+                              >
+                                {section.content as string}
                               </p>
-                            )
-                          ))}
-                        </div>
+                            );
+                          })}
+                        </article>
                         <button
                           onClick={() => setExpandedTip(null)}
-                          className="mt-4 text-[#d4a574] hover:text-[#b88d5f] font-semibold transition-colors"
+                          className="mt-8 px-6 py-2.5 bg-gradient-to-r from-[#d4a574] to-[#b88d5f] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
                           data-testid={`button-collapse-${tip.id}`}
                         >
                           Ler menos
@@ -285,7 +368,7 @@ export default function WeeklyTips() {
                     ) : (
                       <button
                         onClick={() => setExpandedTip(tip.id)}
-                        className="text-[#d4a574] hover:text-[#b88d5f] font-semibold transition-colors"
+                        className="px-6 py-2.5 bg-gradient-to-r from-[#d4a574] to-[#b88d5f] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
                         data-testid={`button-expand-${tip.id}`}
                       >
                         Ler mais

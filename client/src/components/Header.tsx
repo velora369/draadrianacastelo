@@ -52,17 +52,27 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
-          <button 
-            onClick={() => scrollToSection('inicio')}
-            className="hover-elevate active-elevate-2 px-2 py-1 rounded-md transition-transform duration-300 hover:scale-105"
-            data-testid="logo-button"
-          >
-            <img 
-              src="https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/logo.webp" 
-              alt="Dra. Adriana Castelo C. de Moura - Oncologista"
-              className="h-[120px] md:h-36 lg:h-[168px] w-auto max-w-[480px] md:max-w-[600px] lg:max-w-[720px]"
-            />
-          </button>
+          {location === '/' ? (
+            <button 
+              onClick={() => scrollToSection('inicio')}
+              className="hover-elevate active-elevate-2 px-2 py-1 rounded-md transition-transform duration-300 hover:scale-105"
+              data-testid="logo-button"
+            >
+              <img 
+                src="https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/logo.webp" 
+                alt="Dra. Adriana Castelo C. de Moura - Oncologista"
+                className="h-[120px] md:h-36 lg:h-[168px] w-auto max-w-[480px] md:max-w-[600px] lg:max-w-[720px]"
+              />
+            </button>
+          ) : (
+            <div className="px-2 py-1">
+              <img 
+                src="https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/logo.webp" 
+                alt="Dra. Adriana Castelo C. de Moura - Oncologista"
+                className="h-[120px] md:h-36 lg:h-[168px] w-auto max-w-[480px] md:max-w-[600px] lg:max-w-[720px]"
+              />
+            </div>
+          )}
 
           <nav className="hidden lg:flex items-center gap-8">
             <button 
