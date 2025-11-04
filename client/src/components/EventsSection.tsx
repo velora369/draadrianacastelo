@@ -204,10 +204,11 @@ export default function EventsSection() {
         <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
           <button
             onClick={closeEventModal}
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground z-10"
+            className="absolute right-3 top-3 md:right-4 md:top-4 p-2 rounded-full bg-background/80 backdrop-blur-sm border border-muted hover:bg-background hover:border-foreground/20 transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 z-50"
             data-testid="button-close-event-modal"
+            aria-label="Fechar modal"
           >
-            <X className="h-5 w-5" />
+            <X className="h-5 w-5 md:h-6 md:w-6 text-foreground" />
             <span className="sr-only">Fechar</span>
           </button>
           
