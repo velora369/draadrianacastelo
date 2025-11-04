@@ -358,13 +358,27 @@ export default function WeeklyTips() {
                             );
                           })}
                         </article>
-                        <button
-                          onClick={() => setExpandedTip(null)}
-                          className="mt-8 px-6 py-2.5 bg-gradient-to-r from-[#d4a574] to-[#b88d5f] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
-                          data-testid={`button-collapse-${tip.id}`}
-                        >
-                          Ler menos
-                        </button>
+                        <div className="mt-8 flex flex-wrap gap-3 items-center">
+                          <button
+                            onClick={() => setExpandedTip(null)}
+                            className="px-6 py-2.5 bg-gradient-to-r from-[#d4a574] to-[#b88d5f] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
+                            data-testid={`button-collapse-${tip.id}`}
+                          >
+                            Ler menos
+                          </button>
+                          {tip.link && (
+                            <a
+                              href={tip.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="px-6 py-2.5 bg-gradient-to-r from-[#1a3d5c] to-[#0f2a42] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                              data-testid={`button-article-${tip.id}`}
+                            >
+                              Leia o Artigo Completo
+                              <ExternalLink className="w-4 h-4" />
+                            </a>
+                          )}
+                        </div>
                       </div>
                     ) : (
                       <button
