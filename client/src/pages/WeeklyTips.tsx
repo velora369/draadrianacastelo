@@ -77,6 +77,7 @@ const tips: Tip[] = [
     title: "Exercício após a quimioterapia no câncer de cólon: uma nova recomendação baseada em evidências",
     date: "Novembro 2025",
     excerpt: "Por muito tempo, o exercício foi visto apenas como um hábito saudável. Hoje, sabemos que ele pode ser parte do tratamento oncológico.",
+    link: "https://www.nejm.org/doi/full/10.1056/NEJMoa2502760",
     content: `Por muito tempo, o exercício foi visto apenas como um hábito saudável. Hoje, sabemos que ele pode ser parte do tratamento oncológico.
 
 Um grande estudo internacional, publicado em junho de 2025 no The New England Journal of Medicine (Courneya et al., Structured Exercise after Adjuvant Chemotherapy for Colon Cancer), acompanhou quase 900 pacientes que haviam concluído a quimioterapia adjuvante para câncer de cólon.
