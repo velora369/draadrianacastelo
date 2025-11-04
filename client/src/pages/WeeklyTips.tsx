@@ -75,7 +75,7 @@ const tips: Tip[] = [
     id: 1,
     category: "patients",
     title: "Exercício após a quimioterapia no câncer de cólon: uma nova recomendação baseada em evidências",
-    date: "Novembro 2024",
+    date: "Novembro 2025",
     excerpt: "Por muito tempo, o exercício foi visto apenas como um hábito saudável. Hoje, sabemos que ele pode ser parte do tratamento oncológico.",
     content: `Por muito tempo, o exercício foi visto apenas como um hábito saudável. Hoje, sabemos que ele pode ser parte do tratamento oncológico.
 
@@ -108,7 +108,7 @@ Mais do que uma mudança de estilo de vida, é uma forma de continuar cuidando d
     id: 2,
     category: "patients",
     title: "Alimentação durante o tratamento oncológico",
-    date: "Novembro 2024",
+    date: "Novembro 2025",
     excerpt: "Uma nutrição adequada pode fazer toda a diferença no seu tratamento. Entenda como se alimentar melhor durante a quimioterapia.",
     content: `Durante o tratamento oncológico, manter uma alimentação adequada é fundamental para fortalecer o sistema imunológico, manter o peso e melhorar a qualidade de vida.
 
@@ -132,7 +132,7 @@ Converse sempre com seu oncologista e nutricionista para um plano alimentar pers
     id: 3,
     category: "patients",
     title: "Cuidados com a pele durante a radioterapia",
-    date: "Novembro 2024",
+    date: "Novembro 2025",
     excerpt: "A radioterapia pode causar alterações na pele. Saiba como proteger e cuidar da área tratada.",
     content: `A radioterapia é um tratamento eficaz contra o câncer, mas pode causar reações na pele da área tratada. Aqui estão cuidados importantes para minimizar o desconforto:
 
@@ -158,7 +158,7 @@ Lembre-se: cada pessoa reage de forma diferente ao tratamento. Siga sempre as or
     id: 4,
     category: "doctors",
     title: "ASCO 2024: Avanços em Imunoterapia para Melanoma Metastático",
-    date: "Novembro 2024",
+    date: "Novembro 2025",
     excerpt: "Resultados promissores de terapia combinada com inibidores de checkpoint mostram aumento de sobrevida global em 5 anos.",
     content: `Estudo apresentado no ASCO 2024 demonstra resultados promissores com terapia combinada de inibidores de checkpoint (anti-PD-1 + anti-CTLA-4) em melanoma metastático.
 
@@ -178,7 +178,7 @@ A terapia combinada continua sendo o padrão-ouro para pacientes com melanoma me
     id: 5,
     category: "doctors",
     title: "Biomarcadores Preditivos em Câncer de Pulmão: Atualização 2024",
-    date: "Novembro 2024",
+    date: "Novembro 2025",
     excerpt: "Novas mutações druggables identificadas ampliam opções terapêuticas para pacientes com NSCLC avançado.",
     content: `Revisão publicada no Journal of Clinical Oncology destaca avanços na identificação de biomarcadores preditivos em câncer de pulmão de células não pequenas (NSCLC).
 
@@ -200,7 +200,7 @@ Lung Cancer Biomarker Testing: Current State and Future Directions, JCO 2024`,
     id: 6,
     category: "doctors",
     title: "Novos Guidelines para Manejo de Toxicidades de Imunoterapia",
-    date: "Novembro 2024",
+    date: "Novembro 2025",
     excerpt: "NCCN e ESMO publicam diretrizes atualizadas para identificação precoce e manejo de eventos adversos imuno-relacionados.",
     content: `As sociedades NCCN e ESMO publicaram diretrizes atualizadas para o manejo de toxicidades relacionadas à imunoterapia (irAEs).
 
