@@ -7,6 +7,15 @@ This is a professional landing page for Dr. Adriana Castelo C. de Moura, a medic
 ## Recent Changes
 
 ### November 04, 2025
+- **Transformed Events section into automatic carousel**: Implemented Embla Carousel with autoplay and manual navigation
+  - Replaced static grid layout with horizontal carousel showing cards in a single row
+  - Configured automatic rotation with 4-second delay and infinite loop
+  - Added manual navigation buttons (← →) below the carousel for user control
+  - Responsive card sizing: 100% (mobile) → 85% (sm) → 60% (md) → 45% (lg) → 35% (xl)
+  - Autoplay continues even when users interact with navigation buttons
+  - Smooth transitions and hover effects maintained from previous design
+  - All 5 conference cards now rotate automatically for better engagement
+
 - **Fixed scroll behavior in "Dicas da Semana" section**: Implemented scroll preservation when collapsing expanded tips
   - Added useRef hooks to capture card positions before collapse
   - Created handleCollapse function that maintains scroll position when clicking "Ler menos"
