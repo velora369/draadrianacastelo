@@ -6,7 +6,20 @@ This is a professional landing page for Dr. Adriana Castelo C. de Moura, a medic
 
 ## Recent Changes
 
-### November 04, 2024
+### November 04, 2025
+- **Fixed scroll behavior in "Dicas da Semana" section**: Implemented scroll preservation when collapsing expanded tips
+  - Added useRef hooks to capture card positions before collapse
+  - Created handleCollapse function that maintains scroll position when clicking "Ler menos"
+  - Prevents unwanted page jump to footer when collapsing content
+  - Works seamlessly on both mobile and desktop for all tip categories
+
+- **Expanded Events section to 5 conferences**: Added "Simpósio Nacional GBOT 2025" and reorganized layout
+  - New event: Simpósio Nacional GBOT 2025 (Brazil) - multidisciplinary thoracic oncology symposium
+  - Reorganized grid layout from 2 columns to responsive 3-column design
+  - Layout progression: 1 column (mobile) → 2 columns (tablet) → 3 columns (desktop)
+  - Desktop displays 3 events in first row, 2 in second row for balanced appearance
+  - All 5 events maintain consistent styling and hover effects
+
 - **Added "Dicas da Semana" feature**: New weekly tips section with dedicated page
   - **Landing page section**: WeeklyTipsSection component with introduction and clickable card that navigates to dedicated page
   - **Dedicated page** (`/dicas-da-semana`): Standalone page with tab-based content separation
