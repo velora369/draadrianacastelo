@@ -1,10 +1,29 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { Card } from '@/components/ui/card';
-import { Calendar, MapPin } from 'lucide-react';
+import { Calendar, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 export default function EventsSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { 
+      loop: true,
+      align: 'start',
+      skipSnaps: false,
+    },
+    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+  );
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -89,44 +108,69 @@ export default function EventsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:[&>*:nth-child(4)]:col-start-2 lg:[&>*:nth-child(5)]:col-start-3">
-          {events.map((event, index) => (
-            <Card 
-              key={index}
-              className={`group relative overflow-hidden border-muted/40 bg-gradient-to-br ${event.gradient} backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-              style={{ animationDelay: `${400 + index * 100}ms` }}
-              data-testid={`card-event-${index}`}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-accent/0 group-hover:from-primary/5 group-hover:to-accent/5 transition-all duration-500" />
-              
-              <div className="relative p-0">
-                <div className="relative overflow-hidden rounded-t-lg h-64 bg-muted">
-                  <img 
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    data-testid={`img-event-${index}`}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                </div>
-
-                <div className="p-6">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                    <MapPin className="w-4 h-4" />
-                    <span data-testid={`text-location-${index}`}>{event.location}</span>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors" data-testid={`text-title-${index}`}>
-                    {event.title}
-                  </h3>
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-6">
+            {events.map((event, index) => (
+              <div 
+                key={index}
+                className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_60%] lg:flex-[0_0_45%] xl:flex-[0_0_35%]"
+              >
+                <Card 
+                  className={`group relative overflow-hidden border-muted/40 bg-gradient-to-br ${event.gradient} backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  style={{ animationDelay: `${400 + index * 100}ms` }}
+                  data-testid={`card-event-${index}`}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-accent/0 group-hover:from-primary/5 group-hover:to-accent/5 transition-all duration-500" />
                   
-                  <p className="text-muted-foreground leading-relaxed" data-testid={`text-description-${index}`}>
-                    {event.description}
-                  </p>
-                </div>
+                  <div className="relative p-0">
+                    <div className="relative overflow-hidden rounded-t-lg h-64 bg-muted">
+                      <img 
+                        src={event.image}
+                        alt={event.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-testid={`img-event-${index}`}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    </div>
+
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                        <MapPin className="w-4 h-4" />
+                        <span data-testid={`text-location-${index}`}>{event.location}</span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors" data-testid={`text-title-${index}`}>
+                        {event.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground leading-relaxed" data-testid={`text-description-${index}`}>
+                        {event.description}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
               </div>
-            </Card>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-center items-center gap-4 mt-8">
+          <button
+            onClick={scrollPrev}
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-110"
+            data-testid="button-carousel-prev"
+            aria-label="Evento anterior"
+          >
+            <ChevronLeft className="w-6 h-6 text-primary" />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-110"
+            data-testid="button-carousel-next"
+            aria-label="Próximo evento"
+          >
+            <ChevronRight className="w-6 h-6 text-primary" />
+          </button>
         </div>
 
         <div className={`mt-12 text-center ${isVisible ? 'animate-fade-in-up animation-delay-800' : 'opacity-0'}`}>
