@@ -7,6 +7,14 @@ This is a professional landing page for Dr. Adriana Castelo C. de Moura, a medic
 ## Recent Changes
 
 ### November 04, 2025
+- **Improved modal close button for better mobile experience**: Enhanced X button visibility and usability
+  - Increased button size and touch area with added padding for easier mobile interaction
+  - Added semi-transparent background with backdrop-blur for better contrast on all backgrounds
+  - Responsive sizing: 5x5 (mobile) → 6x6 (desktop) with proper touch target
+  - Circular button design with smooth hover effects and scale animation
+  - Enhanced z-index (50) ensures button always stays visible above content
+  - Improved positioning: right-3/top-3 (mobile) → right-4/top-4 (desktop)
+
 - **Added expandable modal for event details**: Implemented click-to-expand functionality for event cards
   - Cards in carousel are now fully clickable to open detailed modal view
   - Modal displays larger event image (height 320px) with gradient overlay
