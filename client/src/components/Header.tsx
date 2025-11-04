@@ -55,7 +55,7 @@ export default function Header() {
           {location === '/' ? (
             <button 
               onClick={() => scrollToSection('inicio')}
-              className="hover-elevate active-elevate-2 px-2 py-1 rounded-md transition-transform duration-300 hover:scale-105"
+              className="transition-opacity"
               data-testid="logo-button"
             >
               <img 
@@ -65,7 +65,7 @@ export default function Header() {
               />
             </button>
           ) : (
-            <div className="px-2 py-1">
+            <div>
               <img 
                 src="https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/10/logo.webp" 
                 alt="Dra. Adriana Castelo C. de Moura - Oncologista"
