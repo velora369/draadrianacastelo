@@ -60,7 +60,7 @@ export default function EventsSection() {
       image: 'https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/11/imggg5.webp',
       title: 'Simpósio Nacional GBOT 2025',
       location: 'Brasil, 2025',
-      description: 'O Simpósio Nacional GBOT 2025 é um encontro multidisciplinar de especialistas em oncologia torácica, com foco em prevenção, diagnóstico e tratamento de tumores do tórax — em especial câncer de pulmão. Participam pneumologistas, oncologistas clínicos, cirurgiões torácicos, radioterapeutas e outros profissionais, além de espaços dedicados a pacientes e cuidadores. O evento traz debates sobre novas terapias, marcadores tumorais, estratégias de atenção integral e troca de experiências clínicas, sendo uma oportunidade para estar por dentro das inovações que moldam a prática clínica da oncologia torácica no Brasil.',
+      description: 'Encontro multidisciplinar de especialistas em oncologia torácica, com foco em prevenção, diagnóstico e tratamento de tumores do tórax, especialmente câncer de pulmão, reunindo profissionais de diversas áreas para debate sobre novas terapias e práticas clínicas.',
       gradient: 'from-amber-500/10 to-orange-500/10',
     },
   ];
@@ -89,7 +89,7 @@ export default function EventsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:[&>*:nth-child(4)]:col-start-2 lg:[&>*:nth-child(5)]:col-start-3">
           {events.map((event, index) => (
             <Card 
               key={index}
