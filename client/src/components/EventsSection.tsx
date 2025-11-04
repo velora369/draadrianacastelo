@@ -1,12 +1,20 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { Card } from '@/components/ui/card';
-import { Calendar, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, MapPin, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
 
 export default function EventsSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const [selectedEvent, setSelectedEvent] = useState<number | null>(null);
   
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
@@ -24,6 +32,14 @@ export default function EventsSection() {
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
+
+  const openEventModal = useCallback((index: number) => {
+    setSelectedEvent(index);
+  }, []);
+
+  const closeEventModal = useCallback(() => {
+    setSelectedEvent(null);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -116,9 +132,10 @@ export default function EventsSection() {
                 className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_60%] lg:flex-[0_0_45%] xl:flex-[0_0_35%]"
               >
                 <Card 
-                  className={`group relative overflow-hidden border-muted/40 bg-gradient-to-br ${event.gradient} backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  className={`group relative overflow-hidden border-muted/40 bg-gradient-to-br ${event.gradient} backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full cursor-pointer ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
                   style={{ animationDelay: `${400 + index * 100}ms` }}
                   data-testid={`card-event-${index}`}
+                  onClick={() => openEventModal(index)}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-accent/0 group-hover:from-primary/5 group-hover:to-accent/5 transition-all duration-500" />
                   
@@ -182,6 +199,67 @@ export default function EventsSection() {
           </div>
         </div>
       </div>
+
+      <Dialog open={selectedEvent !== null} onOpenChange={(open) => !open && closeEventModal()}>
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+          <button
+            onClick={closeEventModal}
+            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground z-10"
+            data-testid="button-close-event-modal"
+          >
+            <X className="h-5 w-5" />
+            <span className="sr-only">Fechar</span>
+          </button>
+          
+          {selectedEvent !== null && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-3xl font-display font-bold text-foreground pr-8">
+                  {events[selectedEvent].title}
+                </DialogTitle>
+                <DialogDescription className="sr-only">
+                  Detalhes completos sobre o evento {events[selectedEvent].title}
+                </DialogDescription>
+              </DialogHeader>
+              
+              <div className="mt-4">
+                <div className="relative overflow-hidden rounded-lg mb-6">
+                  <img 
+                    src={events[selectedEvent].image}
+                    alt={events[selectedEvent].title}
+                    className="w-full h-80 object-cover"
+                    data-testid="img-event-modal"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+
+                <div className="flex items-center gap-2 text-base text-muted-foreground mb-4">
+                  <MapPin className="w-5 h-5" />
+                  <span className="font-semibold" data-testid="text-location-modal">{events[selectedEvent].location}</span>
+                </div>
+
+                <p className="text-lg text-foreground leading-relaxed mb-6" data-testid="text-description-modal">
+                  {events[selectedEvent].description}
+                </p>
+
+                <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg p-6 border border-primary/10">
+                  <div className="flex items-start gap-3">
+                    <Calendar className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-2">Importância da Educação Médica Contínua</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        A participação em eventos científicos internacionais é fundamental para manter-se atualizado 
+                        com as últimas inovações e evidências científicas em oncologia, garantindo aos pacientes 
+                        acesso aos tratamentos mais modernos e eficazes disponíveis.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
