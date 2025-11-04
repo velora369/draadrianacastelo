@@ -6,6 +6,18 @@ This is a professional landing page for Dr. Adriana Castelo C. de Moura, a medic
 
 ## Recent Changes
 
+### November 04, 2024
+- **Added "Dicas da Semana" feature**: New weekly tips section with dedicated page
+  - **Landing page section**: WeeklyTipsSection component with introduction and clickable card that navigates to dedicated page
+  - **Dedicated page** (`/dicas-da-semana`): Standalone page with tab-based content separation
+  - **Tab system**: Toggle between "Para Pacientes" (patient-focused tips) and "Para Médicos" (medical professional content)
+  - **Patient content**: 3 health tips including exercise after chemotherapy, nutrition during treatment, and skin care during radiotherapy
+  - **Medical content**: 3 scientific articles covering melanoma immunotherapy, lung cancer biomarkers, and immunotherapy toxicity management
+  - **Expandable cards**: Each tip/article has a "Ler mais" button to expand full content
+  - **Smart navigation**: Header navigation automatically redirects to home page when clicked from other routes, then scrolls to intended section
+  - **Navigation menu**: Added "Dicas" link to both desktop and mobile header navigation
+  - Full accessibility with data-testids on all interactive elements
+
 ### October 27, 2025
 - **Enhanced header logo visibility**: Increased logo size by 50% for better readability
   - Mobile: 120px (was 80px)
