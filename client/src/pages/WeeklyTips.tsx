@@ -237,7 +237,7 @@ export default function WeeklyTips() {
         <div className="container mx-auto px-4">
           <Link href="/">
             <button
-              className="mb-8 flex items-center gap-2 text-[#1a3d5c] dark:text-blue-300 hover:text-[#d4a574] dark:hover:text-[#d4a574] transition-colors"
+              className="mb-8 flex items-center gap-2 text-[#1a3d5c] dark:text-blue-300 hover:text-[#d4a574] dark:hover:text-[#d4a574] transition-all px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 border border-transparent hover:border-gray-200 dark:hover:border-gray-700"
               data-testid="button-back-home"
             >
               <ArrowLeft className="w-5 h-5" />
