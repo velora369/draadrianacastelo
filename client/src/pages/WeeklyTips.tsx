@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, Users, Stethoscope, Calendar, ExternalLink, CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
@@ -227,8 +227,28 @@ NCCN Guidelines: Management of Immunotherapy-Related Toxicities, Version 2.2024`
 export default function WeeklyTips() {
   const [selectedCategory, setSelectedCategory] = useState<TipCategory>("patients");
   const [expandedTip, setExpandedTip] = useState<number | null>(null);
+  const cardRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
 
   const filteredTips = tips.filter(tip => tip.category === selectedCategory);
+
+  const handleCollapse = (tipId: number) => {
+    const cardElement = cardRefs.current[tipId];
+    if (cardElement) {
+      const cardTop = cardElement.getBoundingClientRect().top + window.scrollY;
+      const offset = 100;
+      
+      setExpandedTip(null);
+      
+      setTimeout(() => {
+        window.scrollTo({
+          top: cardTop - offset,
+          behavior: 'smooth'
+        });
+      }, 50);
+    } else {
+      setExpandedTip(null);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 dark:from-gray-950 to-white dark:to-gray-900">
@@ -288,6 +308,7 @@ export default function WeeklyTips() {
               {filteredTips.map((tip) => (
                 <div
                   key={tip.id}
+                  ref={(el) => (cardRefs.current[tip.id] = el)}
                   className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden border border-gray-200 dark:border-gray-700"
                   data-testid={`card-tip-${tip.id}`}
                 >
@@ -360,7 +381,7 @@ export default function WeeklyTips() {
                         </article>
                         <div className="mt-8 flex flex-wrap gap-3 items-center">
                           <button
-                            onClick={() => setExpandedTip(null)}
+                            onClick={() => handleCollapse(tip.id)}
                             className="px-6 py-2.5 bg-gradient-to-r from-[#d4a574] to-[#b88d5f] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
                             data-testid={`button-collapse-${tip.id}`}
                           >
