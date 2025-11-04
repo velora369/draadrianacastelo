@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { useLocation } from 'wouter';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +18,27 @@ export default function Header() {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
+    setIsMobileMenuOpen(false);
+    
+    if (location !== '/') {
+      setLocation('/');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+  };
+
+  const navigateToDicas = () => {
+    setLocation('/dicas-da-semana');
+    setIsMobileMenuOpen(false);
   };
 
   const whatsappNumber = '5561999999999'; //todo: remove mock functionality
@@ -74,6 +92,13 @@ export default function Header() {
               data-testid="nav-eventos"
             >
               Eventos
+            </button>
+            <button 
+              onClick={navigateToDicas} 
+              className="text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-md transition-colors"
+              data-testid="nav-dicas"
+            >
+              Dicas
             </button>
             <button 
               onClick={() => scrollToSection('depoimentos')} 
@@ -141,6 +166,13 @@ export default function Header() {
                 data-testid="nav-mobile-eventos"
               >
                 Eventos
+              </button>
+              <button 
+                onClick={navigateToDicas} 
+                className="text-left text-foreground hover-elevate active-elevate-2 px-4 py-3 rounded-md"
+                data-testid="nav-mobile-dicas"
+              >
+                Dicas
               </button>
               <button 
                 onClick={() => scrollToSection('depoimentos')} 

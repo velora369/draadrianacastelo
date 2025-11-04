@@ -5,6 +5,7 @@ import AffiliationsStrip from '@/components/ui/affiliations-strip';
 import SpecialtiesSection from '@/components/SpecialtiesSection';
 import HumanizedSection from '@/components/HumanizedSection';
 import EventsSection from '@/components/EventsSection';
+import WeeklyTipsSection from '@/components/WeeklyTipsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import GoogleReviewsSection from '@/components/GoogleReviewsSection';
 import ContactSection from '@/components/ContactSection';
@@ -21,6 +22,7 @@ export default function Home() {
         <SpecialtiesSection />
         <HumanizedSection />
         <EventsSection />
+        <WeeklyTipsSection />
         <TestimonialsSection />
         <GoogleReviewsSection />
         <ContactSection />
