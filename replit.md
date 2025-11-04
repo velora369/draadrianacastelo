@@ -7,6 +7,15 @@ This is a professional landing page for Dr. Adriana Castelo C. de Moura, a medic
 ## Recent Changes
 
 ### November 04, 2025
+- **Added expandable modal for event details**: Implemented click-to-expand functionality for event cards
+  - Cards in carousel are now fully clickable to open detailed modal view
+  - Modal displays larger event image (height 320px) with gradient overlay
+  - Expanded description with better formatting and readability
+  - Additional context section highlighting importance of continuing medical education
+  - Close button (X) in top-right corner for easy dismissal
+  - Modal can be closed by clicking outside or pressing ESC key
+  - Full accessibility support with DialogDescription for screen readers
+
 - **Transformed Events section into automatic carousel**: Implemented Embla Carousel with autoplay and manual navigation
   - Replaced static grid layout with horizontal carousel showing cards in a single row
   - Configured automatic rotation with 4-second delay and infinite loop
