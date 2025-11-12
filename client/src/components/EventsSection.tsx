@@ -125,11 +125,11 @@ export default function EventsSection() {
         </div>
 
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-6">
+          <div className="flex -ml-6">
             {events.map((event, index) => (
               <div 
                 key={index}
-                className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_60%] lg:flex-[0_0_45%] xl:flex-[0_0_35%]"
+                className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_60%] lg:flex-[0_0_45%] xl:flex-[0_0_35%] pl-6"
               >
                 <Card 
                   className={`group relative overflow-hidden border-muted/40 bg-gradient-to-br ${event.gradient} backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full cursor-pointer ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
