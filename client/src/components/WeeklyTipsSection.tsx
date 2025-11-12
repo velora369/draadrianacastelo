@@ -79,10 +79,6 @@ export default function WeeklyTipsSection() {
                     </span>
                   </div>
                 </div>
-
-                <div className="absolute bottom-2 right-3 text-yellow-600/30 dark:text-yellow-400/20 text-xs font-handwriting">
-                  📌
-                </div>
               </div>
             </div>
           </Link>

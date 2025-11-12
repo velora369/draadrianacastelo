@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, Users, Stethoscope, Calendar, ExternalLink, CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
@@ -63,6 +63,10 @@ export default function WeeklyTips() {
   const [selectedCategory, setSelectedCategory] = useState<TipCategory>("patients");
   const [expandedTip, setExpandedTip] = useState<number | null>(null);
   const cardRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, []);
 
   const filteredTips = tips.filter(tip => tip.category === selectedCategory);
 
